@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:dene"
-        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="dene.MainWindow"
+        xmlns:local="clr-namespace:GetLos_App"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="GetLos_App.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized">
     <Grid Background="#FF303943">
         <Grid Margin="276,783,0,0" HorizontalAlignment="Left" Width="1488" Height="185" VerticalAlignment="Top">
-            <Button x:Name="aracbtn" Content="Arac" HorizontalAlignment="Left" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36" Click="aracbtn_Click">
+            <Button x:Name="aracbtn" Content="Autos" HorizontalAlignment="Left" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36" Click="aracbtn_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -25,7 +25,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="musteribtn" Content="Musteri" HorizontalAlignment="Left" Margin="307,0,0,0" VerticalAlignment="Center" Height="153" Width="191" BorderBrush="{x:Null}" FontSize="36" Click="musteribtn_Click">
+            <Button x:Name="musteribtn" Content="Kunden" HorizontalAlignment="Left" Margin="307,0,0,0" VerticalAlignment="Center" Height="153" Width="191" BorderBrush="{x:Null}" FontSize="36" Click="musteribtn_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -41,7 +41,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="faturabtn" Content="Fatura" HorizontalAlignment="Left" Margin="957,0,0,0" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36">
+            <Button x:Name="faturabtn" Content="Faktur" HorizontalAlignment="Left" Margin="957,0,0,0" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -57,7 +57,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="kiralama" Content="Kiralama" HorizontalAlignment="Left" Margin="635,0,0,0" VerticalAlignment="Center" Height="153" Width="190" BorderBrush="{x:Null}" FontSize="36">
+            <Button x:Name="kiralama" Content="Mieten" HorizontalAlignment="Left" Margin="635,0,0,0" VerticalAlignment="Center" Height="153" Width="190" BorderBrush="{x:Null}" FontSize="36" Click="kiralama_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -73,7 +73,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="ayarlarbtn" Content="Ayarlar" HorizontalAlignment="Left" Margin="1291,0,0,0" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36">
+            <Button x:Name="ayarlarbtn" Content="Einstellungen" HorizontalAlignment="Left" Margin="1291,0,0,0" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>

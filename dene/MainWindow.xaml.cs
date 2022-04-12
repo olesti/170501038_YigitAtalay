@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace dene
+namespace GetLos_App
 {
     /// <summary>
     /// MainWindow.xaml etkileşim mantığı
@@ -28,13 +28,21 @@ namespace dene
 
         private void aracbtn_Click(object sender, RoutedEventArgs e)
         {
-           
+            Autos arac = new Autos();
+            arac.Show();    
         }
 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
             Musteri ara = new Musteri();
             ara.Show();
+        }
+
+        private void kiralama_Click(object sender, RoutedEventArgs e)
+        {
+            Kira saaa = new Kira();   
+            saaa.Show();
+
         }
     }
 }
