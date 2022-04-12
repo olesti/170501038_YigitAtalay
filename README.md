@@ -18,4 +18,4 @@ Müşteri Sayfası:
 
 
 İlk versiyon Youtube Linki:
-https://youtu.be/QztZSv9xd_0
+https://youtu.be/ObHqERmA7Ow
