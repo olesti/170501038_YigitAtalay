@@ -15,3 +15,7 @@ Müşteri Sayfası:
 ![kunde](https://user-images.githubusercontent.com/64621810/163027972-274b0ec6-9595-47bd-8498-f5f5316cd6ce.png)
 
 Şu ana kadar yapılan arayüz ilk versiyondur. Geliştirilmek üzere hazırlanmıştır...
+
+
+İlk versiyon Youtube Linki:
+https://youtu.be/QztZSv9xd_0
