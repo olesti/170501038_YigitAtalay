@@ -20,3 +20,6 @@ Müşteri Sayfası:
 
 İlk versiyon Youtube Linki:
 https://youtu.be/ObHqERmA7Ow
+
+Yiğit Atalay
+170501038
