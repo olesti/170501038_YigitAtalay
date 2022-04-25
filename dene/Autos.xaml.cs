@@ -21,29 +21,16 @@ namespace GetLos_App
     /// </summary>
     public partial class Autos : Window
     {
+        Class1 kp = new Class1();
 
         public Autos()
         {
             InitializeComponent();
+            kp.Listele1();
+            aracdata.ItemsSource = kp.Listele1();
 
         }
-        public class Auto
-        {
-            public string Plaka { get; set; }
-            public string Marke { get; set; }
-            public int  Alter { get; set; }
-            public string Kraftstoff { get; set; }
-            public string Nummernschild { get; set; }
-            public String Getriebetype { get; set; }
-            public int Km { get; set; }
-            public String Motorleistung { get; set; }
-            public String Traktion { get; set; }
-            public String Tür { get; set; }
-            public String Karosserientyp { get; set; }
-            public String Schaden { get; set; }
-            public Image image { get; set; }
-            //public Boolean hasar { get; set; }
-        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

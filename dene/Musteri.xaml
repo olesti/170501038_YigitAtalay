@@ -47,7 +47,7 @@
             <Button Content="Ausdrucken" HorizontalAlignment="Left" Margin="449,0,0,0" VerticalAlignment="Center" Height="64" Width="71"/>
 
         </Grid>
-        <DataGrid x:Name="musteridata"  Margin="2,302,0,0">
+        <DataGrid x:Name="musteridata" SelectionMode="Single" Margin="2,302,0,0" SelectionChanged="musteridata_SelectionChanged" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridComboBoxColumn/>
             </DataGrid.Columns>

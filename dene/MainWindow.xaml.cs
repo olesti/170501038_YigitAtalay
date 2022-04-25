@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace GetLos_App
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void aracbtn_Click(object sender, RoutedEventArgs e)
