@@ -12,7 +12,7 @@ namespace GetLos_App
     {
         MySqlConnection con= new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
         MySqlCommand cmd;
-
+        static int sayi;
         public void class1()
         {
 
@@ -20,7 +20,7 @@ namespace GetLos_App
 
         public List<aracclass> Listele1()
         {
-
+            sayi = 0;
             try
             {
                 List<aracclass> araclist = new List<aracclass>();
@@ -47,7 +47,8 @@ namespace GetLos_App
                     k1.Getriebetype = reader[5].ToString();
                     k1.Km = reader[6].ToString();
                     k1.Motorleistung = reader[7].ToString();
-                    k1.Schaden = reader[10].ToString(); 
+                    k1.Schaden = reader[11].ToString(); 
+                    k1.Tür =reader[9].ToString();
                     araclist.Add(k1);
                 }
                 return araclist;
@@ -67,6 +68,7 @@ namespace GetLos_App
         public List<mustericlass> Listele()
         {
             //con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
+            sayi = 1;
 
             try
             {

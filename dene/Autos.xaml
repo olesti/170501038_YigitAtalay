@@ -11,15 +11,20 @@
         <Grid HorizontalAlignment="Left" Margin="28,32,0,0" VerticalAlignment="Top" Width="318">
             <Grid HorizontalAlignment="Left" Height="130" Margin="90,0,0,0" VerticalAlignment="Top" Width="228">
                 <Label Content="Kraftstoff" VerticalAlignment="Top" Margin="0,76,0,0" HorizontalAlignment="Left"/>
-                <TextBox x:Name="soyadtxt" TextWrapping="Wrap" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F" VerticalAlignment="Top" Margin="108,30,0,0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="modeltxt" TextWrapping="Wrap" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F" VerticalAlignment="Top" Margin="108,30,0,0" HorizontalAlignment="Left"/>
                 <Label Content="Model" VerticalAlignment="Top" Margin="0,26,0,0" HorizontalAlignment="Left"/>
-                <TextBox x:Name="adtxt" TextWrapping="Wrap" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F" VerticalAlignment="Top" Margin="108,6,0,0" HorizontalAlignment="Left"/>
+                <TextBox x:Name="markatxt" TextWrapping="Wrap" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F" VerticalAlignment="Top" Margin="108,6,0,0" HorizontalAlignment="Left"/>
                 <Label Content="Marke" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox x:Name="soyadtxt_Copy" HorizontalAlignment="Left" Margin="108,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+                <TextBox x:Name="altertxt" HorizontalAlignment="Left" Margin="108,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
                 <Label Content="Fahrzeugalter" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
-                <ListBox x:Name="yakıtlist"  Margin="109,80,2,30" Background="#FFFF7F7F" BorderBrush="{x:Null}"/>
+                <ComboBox x:Name="yakıtlist"  Margin="109,80,0,26" Background="#FFFF7F7F" BorderBrush="{x:Null}">
+                    <ComboBoxItem Name="benzin" Content="Benzin" />
+                    <ComboBoxItem Name="dizel" Content="Diesel"/>
+                    <ComboBoxItem Name="elektrik" Content="Elektrikli"/>
+                    <ComboBoxItem Name="lpg" Content="Lpg"/>
+                </ComboBox>
                 <Label Content="Nummernschild" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top"/>
-                <ListBox x:Name="yakıtlist_Copy2"  Margin="109,108,2,2" Background="#FFFF7F7F" BorderBrush="{x:Null}"/>
+                <TextBox x:Name="plakatxt" HorizontalAlignment="Left" Margin="108,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="102" VerticalAlignment="Top">
                 <Image HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="87" Source="/car-rent.png"/>
@@ -30,24 +35,29 @@
         </Grid>
 
         <Grid Height="78" Width="228" VerticalAlignment="Top" Margin="0,32,380,0" HorizontalAlignment="Right">
-            <TextBox x:Name="adrestxt" HorizontalAlignment="Left" Margin="108,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+            <TextBox x:Name="motorgüctxt" HorizontalAlignment="Left" Margin="108,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             <Label Content="Motorleistung" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="emailtxt" HorizontalAlignment="Left" Margin="108,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+            <TextBox x:Name="kmtxt" HorizontalAlignment="Left" Margin="108,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             <Label Content="Km" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="telefonnummertxt" HorizontalAlignment="Left" Margin="108,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+            <TextBox x:Name="şanzımantxt" HorizontalAlignment="Left" Margin="108,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             <Label Content="Getriebetyp" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </Grid>
         <Grid Height="165" Width="228" VerticalAlignment="Top" Margin="0,30,79,0" HorizontalAlignment="Right">
-            <Label Content="Karosserietyp" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="ehliyetturtxt" HorizontalAlignment="Left" Margin="108,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
-            <Label Content="Tür" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0"/>
-            <ListBox x:Name="yakıtlist_Copy"  Margin="108,32,0,116" Background="#FFFF7F7F" BorderBrush="{x:Null}"/>
-            <Label Content="Schaden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,50,0,0"/>
+            <Label Content="Karosserietyp" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <ComboBox x:Name="kasalist"  Margin="109,6,0,137" Background="#FFFF7F7F" BorderBrush="{x:Null}">
+                <ComboBoxItem Name="benzin1" Content="Hatchback"/>
+                <ComboBoxItem Name="dizel1" Content="Sedan"/>
+                <ComboBoxItem Name="elektri1k" Content="Stationwagon"/>
 
-            <ComboBox HorizontalAlignment="Left" Margin="109,54,0,0" VerticalAlignment="Top" Width="119" Height="17" BorderBrush="{x:Null}" Background="#FFFF7F7F">
+            </ComboBox>
+            <Label Content="Schaden" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,24,0,0"/>
+
+            <ComboBox Name="schade" HorizontalAlignment="Left" Margin="109,32,0,0" VerticalAlignment="Top" Width="119" Height="21" BorderBrush="{x:Null}" Background="#FFFF7F7F">
                 <ComboBoxItem Content="unbeschädigt"/>
                 <ComboBoxItem Content="beschädigt"/>
             </ComboBox>
+            <Label Content="Notlar" HorizontalAlignment="Left" Margin="-1,51,0,0" VerticalAlignment="Top" Width="44"/>
+            <TextBlock x:Name="notlartxt" HorizontalAlignment="Left" Margin="110,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="118" Background="#FFFF7F7F" Text=""/>
 
         </Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="520" Margin="219,204,0,0" Height="81">

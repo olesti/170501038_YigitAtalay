@@ -102,8 +102,35 @@ namespace GetLos_App
         }
         private void musteridata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            mustericlass selectedEmployee = musteridata.SelectedItem as mustericlass;
+            adtxt.Text = selectedEmployee.Ad;
+            soyadtxt.Text = selectedEmployee.Soyad;
+            adrestxt.Text = selectedEmployee.Adresse;
+            ehliyetnotxt.Text = selectedEmployee.Ehliyetno.ToString();
+            ehliyetturtxt.Text = selectedEmployee.Ehliyett;
+            emailtxt.Text = selectedEmployee.Mail;
+            dogumpicker.Text = selectedEmployee.Dogum;
+            tcnummertxt.Text = selectedEmployee.Tcnummer;
+            telefonnummertxt.Text = selectedEmployee.Telefonu;
             
+            
+            
+            //resim.Source = selectedEmployee.image;
+            //DataGrid dg = (DataGrid)sender;
+            //DataRowView row_select= dg.SelectedItem as DataRowView;
+            if (musteridata != null)
+            {
+                /*
+                adtxt.Text = musteridata.SelectedItems[0].ToString();
+                soyadtxt.Text = musteridata.SelectedItems[1].ToString();
+                adrestxt.Text = musteridata.SelectedItems[2].ToString();
+                ehliyetnotxt.Text = musteridata.SelectedItems[3].ToString();
+                ehliyetturtxt.Text = musteridata.SelectedItems[4].ToString();
+                emailtxt.Text = musteridata.SelectedItems[5].ToString();
+                dogumpicker.Text = musteridata.SelectedItems[6].ToString();
+                tcnummertxt.Text = musteridata.SelectedItems[7].ToString();
+                telefonnummertxt.Text = musteridata.SelectedItems[8].ToString();*/
+            }
 
 
         }

@@ -47,13 +47,43 @@ namespace GetLos_App
         Class1 kp=new Class1(); 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
-            datagrid.ItemsSource = kp.Listele(); 
+            datagrid.ItemsSource = kp.Listele();
+            
+
         }
 
         private void aracbtn_Click(object sender, RoutedEventArgs e)
         {
             datagrid.ItemsSource = kp.Listele1();
+            
 
+
+        }
+
+        private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            if (datagrid. == 9)
+            {
+                mustericlass selectedEmployee = datagrid.SelectedItem as mustericlass;
+                adtxt.Text = selectedEmployee.Ad;
+                soyadtxt.Text = selectedEmployee.Soyad;
+                ehlinotxt.Text = selectedEmployee.Ehliyetno.ToString();
+                mailtxt.Text = selectedEmployee.Mail;
+                teltxt.Text = selectedEmployee.Telefonu;
+                tctxt.Text = selectedEmployee.Tcnummer;
+            }
+            else
+            {
+                aracclass saaa = datagrid.SelectedItem as aracclass;
+                kasatxt.Text = saaa.Karosserientyp;
+                markacombo.Text = saaa.Model;
+                plakatxt.Text = saaa.Nummernschild;
+                modeltxt.Text = saaa.Model;
+                vitestxt.Text = saaa.Getriebetype;
+            }
+
+            */
         }
     }
 }
