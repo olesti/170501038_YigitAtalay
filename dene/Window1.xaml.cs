@@ -165,15 +165,48 @@ namespace GetLos_App
                 }
                 else
                 {
-                    MessageBox.Show("daha güçlü bir şifre oluşturun");
+                    MessageBox.Show("Das Passwort muss einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Symbol enthalten.");
                 }
 ;
             }
             else
             {
-                MessageBox.Show("Şifreler aynı değil");
+                MessageBox.Show("Passwörter sind nicht gleich");
             }
         }
-        
+
+        private void passwordtxt_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void passwordtxt_ToolTipOpening(object sender, ToolTipEventArgs e)
+        {
+            passwordtxt.ToolTip = "Das Passwort muss einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Symbol enthalten.";
+
+
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool K = Keyboard.IsKeyDown(Key.K);
+            bool shift = Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
+            if (K && shift) 
+            {
+                if (passss.IsEnabled == true)
+                {
+                    passss.IsEnabled = false;
+
+                }
+                else
+                {
+                    passss.IsEnabled = true;
+
+                }
+
+            }
+            
+
+        }
     }
 }
