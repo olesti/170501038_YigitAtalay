@@ -25,65 +25,29 @@ namespace GetLos_App
         }
 
         
-        public class Kiralama
-        {
-            public string Vorname { get; set; }
-            public string Nachname { get; set; }
-            public int Telefonnumer { get; set; }
-            public int Tcnummer { get; set; }
-            public string Email { get; set; }
-            public string Ehliyetno { get; set; }
-            public string Plaka { get; set; }
-            public string Model { get; set; }
-            public string Marka { get; set; }
-            public string Autoage { get; set; }
-            public string Yakıt { get; }
-            public string Vites { get; }
-            public int Km { get; set; }
-            public string Renk { get; set; }
-            public string Kasatipi { get; set; }
-
-        }
         Class1 kp=new Class1(); 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
-            datagrid.ItemsSource = kp.Listele();
+            
             
 
         }
 
         private void aracbtn_Click(object sender, RoutedEventArgs e)
         {
-            datagrid.ItemsSource = kp.Listele1();
-            
+            //datagrid.ItemsSource = kp.Listele1();
 
+            Window2 sa = new Window2();
+            sa.Show();
 
         }
 
         private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*
-            if (datagrid. == 9)
-            {
-                mustericlass selectedEmployee = datagrid.SelectedItem as mustericlass;
-                adtxt.Text = selectedEmployee.Ad;
-                soyadtxt.Text = selectedEmployee.Soyad;
-                ehlinotxt.Text = selectedEmployee.Ehliyetno.ToString();
-                mailtxt.Text = selectedEmployee.Mail;
-                teltxt.Text = selectedEmployee.Telefonu;
-                tctxt.Text = selectedEmployee.Tcnummer;
-            }
-            else
-            {
-                aracclass saaa = datagrid.SelectedItem as aracclass;
-                kasatxt.Text = saaa.Karosserientyp;
-                markacombo.Text = saaa.Model;
-                plakatxt.Text = saaa.Nummernschild;
-                modeltxt.Text = saaa.Model;
-                vitestxt.Text = saaa.Getriebetype;
-            }
+          
 
-            */
+
+
         }
     }
 }

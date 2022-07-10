@@ -9,9 +9,8 @@
     <Grid Background="#FF303943">
         <Grid HorizontalAlignment="Left" Height="102" Margin="28,32,0,0" VerticalAlignment="Top" Width="318">
             <Grid HorizontalAlignment="Left" Height="101" Margin="90,0,0,0" VerticalAlignment="Center" Width="228">
-                <TextBox x:Name="tcnummertxt" HorizontalAlignment="Left" Margin="108,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
-                <Label Content="Tcnummer" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top"/>
-                <Label Content="Doğum Tarihi" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="tcnummertxt" HorizontalAlignment="Left" Margin="108,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+                <Label Content="Tcnummer" HorizontalAlignment="Left" Margin="0,47,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="soyadtxt" HorizontalAlignment="Left" Margin="108,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
                 <Label Content="Nachname" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="adtxt" HorizontalAlignment="Left" Margin="108,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
@@ -43,7 +42,7 @@
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="520" Margin="219,204,0,0" Height="81">
             <Button Content="Hinzufügen" HorizontalAlignment="Left" VerticalAlignment="Center" Height="64" Width="71" Click="Button_Click"/>
             <Button Content="Veränderung" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Center" Height="64" Width="71"/>
-            <Button Content="Löschen" HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Center" Height="64" Width="71"/>
+            <Button Content="Löschen" HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Center" Height="64" Width="71" Click="Button_Click_1"/>
             <Button Content="Ausdrucken" HorizontalAlignment="Left" Margin="449,0,0,0" VerticalAlignment="Center" Height="64" Width="71"/>
 
         </Grid>
@@ -52,7 +51,6 @@
                 <DataGridComboBoxColumn/>
             </DataGrid.Columns>
         </DataGrid>
-        <DatePicker x:Name="dogumpicker" HorizontalAlignment="Left" Margin="226,84,0,0" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" FirstDayOfWeek="Monday" SelectedDateFormat="Long" IsTodayHighlighted="False" Text="date" Background="#FFFF7F7F"/>
 
     </Grid>
 </Window>

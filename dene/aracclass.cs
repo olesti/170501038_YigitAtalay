@@ -9,13 +9,12 @@ namespace GetLos_App
 {
     internal class aracclass
     {
-        int _no;
-        public int No
+        string _no;
+        public string No
         {
             get { return _no; }
             set { _no = value; }
         }
-       
         string _marke;
         public string Marke
         {
@@ -52,15 +51,9 @@ namespace GetLos_App
             get { return _km; }
             set { _km = value; }
         }
-        string _motor;
-        public string Motorleistung
-        {
-            get { return _motor; }
-            set { _motor = value; }
-        }
         
         string _tür;
-        public string Tür
+        public string Farbe
         {
             get { return _tür; }
             set { _tür = value; }
@@ -83,11 +76,6 @@ namespace GetLos_App
             get { return _model; }
             set { _model = value; }
         }
-        Image _ima;
-        public Image image
-        {
-            get { return _ima; }
-            set { _ima = value; }
-        }
+      
     }
 }

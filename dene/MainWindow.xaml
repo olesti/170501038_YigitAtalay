@@ -90,6 +90,6 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Image Margin="785,-2,0,0" Source="/GetLos-logos_black.png" Stretch="UniformToFill" Height="400" VerticalAlignment="Top" HorizontalAlignment="Left" Width="457"/>
+        <Image Margin="769,8,0,0" Source="/GetLos-logos_black.png" Stretch="UniformToFill" Height="400" VerticalAlignment="Top" HorizontalAlignment="Left" Width="457"/>
     </Grid>
 </Window>

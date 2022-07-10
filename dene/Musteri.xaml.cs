@@ -82,22 +82,23 @@ namespace GetLos_App
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            /*
-              mus.Add(new Musteriler() { 
-                Vorname = adtxt.Text, 
-                Nachname = soyadtxt.Text,
-                birhday = dogumpicker,
-                Tcnummer = 2,
-                Telefonnummer=1 ,
-                Email=emailtxt.Text,
-                Adresse=adrestxt.Text,
-                EhliyetNo=ehliyetnotxt.Text,
-                Ehliyettür= ehliyetturtxt.Text,
-                Not=notlartxt.Text,
-            });
-            */
-            musteridata.Items.Refresh();
+
+
+            mustericlass yenimus = new mustericlass();
+
+
+            yenimus.Ad = adtxt.Text;
+            yenimus.Soyad = soyadtxt.Text;
+            yenimus.Tcnummer = tcnummertxt.Text;
+            yenimus.Telefonu = telefonnummertxt.Text;
+            yenimus.Mail = emailtxt.Text;
+            yenimus.Adresse = adrestxt.Text;
+            yenimus.Ehliyetno = Convert.ToInt32(ehliyetnotxt.Text);
+            yenimus.Ehliyett = ehliyetturtxt.Text;
+
+            kp.Ekle1(yenimus);
+            kp.Listele();
+            musteridata.ItemsSource =kp.Listele();
 
         }
         private void musteridata_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -109,7 +110,6 @@ namespace GetLos_App
             ehliyetnotxt.Text = selectedEmployee.Ehliyetno.ToString();
             ehliyetturtxt.Text = selectedEmployee.Ehliyett;
             emailtxt.Text = selectedEmployee.Mail;
-            dogumpicker.Text = selectedEmployee.Dogum;
             tcnummertxt.Text = selectedEmployee.Tcnummer;
             telefonnummertxt.Text = selectedEmployee.Telefonu;
             
@@ -135,6 +135,13 @@ namespace GetLos_App
 
         }
 
-
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            mustericlass aracclass2 = new mustericlass();
+            aracclass2 = (mustericlass)musteridata.SelectedItem as mustericlass;
+            kp.Sil1(aracclass2);
+            kp.Listele();
+            musteridata.ItemsSource = kp.Listele();
+        }
     }
 }

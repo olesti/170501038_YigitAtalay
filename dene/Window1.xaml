@@ -1,0 +1,38 @@
+﻿<Window x:Class="GetLos_App.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GetLos_App"
+        mc:Ignorable="d"
+        Title="Window1" Height="320" Width="400">
+    <Grid Background="#FF303943">
+        <Grid HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="243" Margin="101,88,0,0">
+            <Label Content="Username&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="usertxt" HorizontalAlignment="Left" Margin="122,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="241" Margin="101,144,0,0">
+            <Label Content="Aktivierungscode" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="aktiviertxt" HorizontalAlignment="Left" Margin="121,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="aktiviertxt_TextChanged"/>
+
+        </Grid>
+        <Button x:Name="sendmailbtn" Content="Send Email" HorizontalAlignment="Left" Margin="288,118,0,0" VerticalAlignment="Top" Height="16" Width="56" FontSize="8" BorderBrush="{x:Null}" Click="sendmailbtn_Click"/>
+        <Button x:Name="aktbtn" Content="Aktivierungieren" HorizontalAlignment="Left" Margin="288,171,0,0" VerticalAlignment="Top" Height="16" Width="56" FontSize="7" BorderBrush="{x:Null}" Click="Button_Click"/>
+        <Grid x:Name="passss" HorizontalAlignment="Left" Height="67" Margin="101,192,0,0" VerticalAlignment="Top" Width="243" IsEnabled="False">
+            <Grid HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="241">
+                <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="passwordtxt" HorizontalAlignment="Left" Margin="121,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+            </Grid>
+            <Grid HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Width="241" Margin="0,25,0,0">
+                <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="passwordtxt2" HorizontalAlignment="Left" Margin="121,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+
+            </Grid>
+            <Button x:Name="passbtn" Content="Aktivierungieren" Margin="187,51,0,0" FontSize="7" BorderBrush="{x:Null}" Click="passbtn_Click"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

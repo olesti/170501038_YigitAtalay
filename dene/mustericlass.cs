@@ -15,60 +15,43 @@ namespace GetLos_App
             get { return _no; }
             set { _no = value; }
         }
-
-
         string _adi;
         public string Ad
         {
             get { return _adi; }
             set { _adi = value; }
         }
-
-
         string _soyadi;
         public string Soyad
         {
             get { return _soyadi; }
             set { _soyadi = value; }
         }
-
-
         string _telefonu;
         public string Telefonu
         {
             get { return _telefonu; }
             set { _telefonu = value; }
         }
-
-        String _dogum;
-        public String Dogum
-        {
-            get { return _dogum; }
-            set { _dogum = value; }
-        }
-
+        
         string _tcnummer;
         public string Tcnummer
         {
             get { return _tcnummer; }
             set { _tcnummer = value; }
         }
-
         string _mail;
-
         public string Mail
         {
             get { return _mail; }
             set { _mail = value; }
         }
-
         string _adresse;
         public string Adresse
         {
             get { return _adresse; }
             set { _adresse = value; }
         }
-
         int _ehlino;
         public int Ehliyetno
         {
@@ -88,11 +71,6 @@ namespace GetLos_App
             get { return _notlar; }
             set { _notlar = value; }
         }*/
-        Image _resim;
-        public Image image
-        {
-            get { return _resim; }
-            set { _resim = value; }
-        }
+       
     }
 }

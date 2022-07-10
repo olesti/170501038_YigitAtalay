@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GetLos_App"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="GetLos_App.Window2"
+        mc:Ignorable="d"
+        Title="Loginscreen" Height="320" Width="400">
+    <Grid Background="#FF303943">
+        <Grid HorizontalAlignment="Center" Height="26" Margin="0,114,0,0" VerticalAlignment="Top" Width="280">
+            <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="-1,0,0,0"/>
+            <TextBox x:Name="usernametxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" Margin="160,0,0,0"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Height="26" Margin="0,157,0,0" VerticalAlignment="Top" Width="281">
+            <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="passwordtxt" TextWrapping="Wrap" Text="" VerticalAlignment="Center" HorizontalAlignment="Right" Width="120"/>
+        </Grid>
+        <Label Content="Benutzer-Anmeldung" HorizontalAlignment="Left" Margin="145,29,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFE0B007"/>
+        <Button x:Name="loginbutton" Content="Anmeldung" HorizontalAlignment="Left" Margin="162,222,0,0" VerticalAlignment="Top" Height="18" Width="64" BorderBrush="{x:Null}" Background="#FFC87C20" FontSize="10" Click="loginbutton_Click"/>
+        <Button x:Name="loginbutton_Copy" Content="Passwort vergessen?" HorizontalAlignment="Left" Margin="264,191,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="8" Click="loginbutton_Copy_Click"/>
+    </Grid>
+</Window>
