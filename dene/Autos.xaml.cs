@@ -18,6 +18,8 @@ using System.Windows.Shapes;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.Windows.Shared;
 using System.Diagnostics;
+using MySqlConnector;
+
 namespace GetLos_App
 {
     /// <summary>
@@ -57,89 +59,156 @@ namespace GetLos_App
                 }
             }
         }
+        bool xy;
+
+        private bool sa(aracclass asaa)
+        {
+            MySqlConnection con = new MySqlConnection("Server=localhost;Database=users;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
+
+            MySqlDataAdapter baglayici = new MySqlDataAdapter();
+            MySqlCommand komut = new MySqlCommand("Select * from testdb.arac where plaka = '" + plakatxt.Text + "'", con);
+            con.Open();
+            MySqlDataReader reader = komut.ExecuteReader();
+
+            if (reader.Read())
+            {
+                xy = false;
+
+            }
+            else
+            {
+                xy = true;
+
+
+            }
+
+            return xy;
+        }
+        bool yz=true;
+        private bool txttt()
+        {
+            if (markatxt.Text=="" || modeltxt.Text == ""
+                || plakatxt.Text == "" || altertxt.Text == "" || yakıtlist.Text == ""
+                || kasalist.Text == "" )
+            {
+                yz=false;
+            }
+            else
+            {
+                yz = true;
+            }
+            return yz;
+
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            txttt();
             aracclass yeniarac = new aracclass();
+            sa(yeniarac);
+            
+            if (yz)
+            {
+                yeniarac.No = "0";
+                yeniarac.Marke = markatxt.Text;
+                yeniarac.Model = modeltxt.Text;
+                yeniarac.Nummernschild = plakatxt.Text;
+                yeniarac.Alter = Convert.ToInt32(altertxt.Text);
+                yeniarac.Kraftstoff = "Benzin";
+                yeniarac.Getriebetype = şanzımantxt.Text;
+                yeniarac.Km = kmtxt.Text;
+                yeniarac.Karosserientyp = "Sedan";
+                yeniarac.Schaden = schade.SelectedIndex.ToString();
+                yeniarac.Farbe = "Schwarz";
+                if (xy)
+                {
+                    kp.Ekle(yeniarac);
+                    aracdata.ItemsSource = kp.Listele1();
 
-           
-            yeniarac.Marke = markatxt.Text;
-            yeniarac.Model = modeltxt.Text;
-            yeniarac.Nummernschild = plakatxt.Text;
-            yeniarac.Alter = Convert.ToInt32(altertxt.Text);
-            yeniarac.Kraftstoff = "sss";
-            yeniarac.Getriebetype = şanzımantxt.Text;
-            yeniarac.Km = kmtxt.Text;
-            yeniarac.Karosserientyp= "asas";
-            yeniarac.Schaden = schade.SelectedIndex.ToString();
+                    kp.Listele();
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
 
-            kp.Ekle(yeniarac);
-            kp.Listele();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sie müssen jedes Feld ausfüllen");
+            }
+            
+
         }
         private void musteridata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            aracclass selectedEmployee = aracdata.SelectedItem as aracclass;
-            int i=0;
-            int j=0;
-            int z=0;
-            if (selectedEmployee.Karosserientyp == "Hatchback")
+            if (aracdata.SelectedItem != null)
             {
-                i = 0;
+                aracclass selectedEmployee = aracdata.SelectedItem as aracclass;
+                int i = 0;
+                int j = 0;
+                int z = 0;
+                if (selectedEmployee.Karosserientyp == "Hatchback")
+                {
+                    i = 0;
+                }
+                if (selectedEmployee.Karosserientyp == "Sedan")
+                {
+                    i = 1;
+
+                }
+                if (selectedEmployee.Karosserientyp == "Stationwagon")
+                {
+                    i = 2;
+
+                }
+                if (selectedEmployee.Schaden == "0")
+                {
+                    j = 0;
+                }
+                if (selectedEmployee.Schaden == "1")
+                {
+
+                    j = 1;
+
+                }
+                if (selectedEmployee.Kraftstoff == "Benzin")
+                {
+
+                    z = 0;
+
+                }
+                if (selectedEmployee.Kraftstoff == "Diesel")
+                {
+
+                    z = 1;
+
+                }
+                if (selectedEmployee.Kraftstoff == "Elektrik")
+                {
+
+                    z = 2;
+
+                }
+                if (selectedEmployee.Kraftstoff == "Lpg")
+                {
+
+                    z = 3;
+
+                }
+
+                markatxt.Text = selectedEmployee.Marke;
+                modeltxt.Text = selectedEmployee.Model;
+                kmtxt.Text = selectedEmployee.Km;
+                kasalist.SelectedIndex = i;
+
+                şanzımantxt.Text = selectedEmployee.Getriebetype;
+                plakatxt.Text = selectedEmployee.Nummernschild;
+                altertxt.Text = selectedEmployee.Alter.ToString();
+                motorgüctxt.Text = selectedEmployee.Farbe;
+                schade.SelectedIndex = j;
+                yakıtlist.SelectedIndex = z;
             }
-            if (selectedEmployee.Karosserientyp == "Sedan")
-            {
-                i = 1;
-
-            }
-            if (selectedEmployee.Karosserientyp == "Stationwagon")
-            {
-                i = 2;
-
-            }
-            if (selectedEmployee.Schaden == "0")
-            {
-                j = 0;
-            }
-            if (selectedEmployee.Schaden == "1")
-            {
-
-                j = 1;
-
-            }
-            if (selectedEmployee.Kraftstoff == "Benzin")
-            {
-
-                z = 0;
-
-            }
-            if (selectedEmployee.Kraftstoff == "Dizel")
-            {
-
-                z = 1;
-
-            }
-            if (selectedEmployee.Kraftstoff == "Elektrik")
-            {
-
-                z = 2;
-
-            }
-            if (selectedEmployee.Kraftstoff == "Lpg")
-            {
-
-                z = 3;
-
-            }
-
-            markatxt.Text = selectedEmployee.Marke;
-            modeltxt.Text = selectedEmployee.Model;
-            kmtxt.Text = selectedEmployee.Km;
-            kasalist.SelectedIndex = i;
-
-            şanzımantxt.Text = selectedEmployee.Getriebetype;
-            plakatxt.Text = selectedEmployee.Nummernschild;
-            altertxt.Text = selectedEmployee.Alter.ToString();
-            schade.SelectedIndex = j;
-            yakıtlist.SelectedIndex = z;
+           
         }
         private void benzin_Selected(object sender, RoutedEventArgs e)
         {
@@ -164,11 +233,12 @@ namespace GetLos_App
             yenikisi.Model = modeltxt.Text;
             yenikisi.Nummernschild = plakatxt.Text;
             yenikisi.Alter = Convert.ToInt32(altertxt.Text);
-            yenikisi.Kraftstoff = "sss";
+            yenikisi.Kraftstoff = yakıtlist.Text;
             yenikisi.Getriebetype = şanzımantxt.Text;
             yenikisi.Km = kmtxt.Text;
-            yenikisi.Karosserientyp = "asas";
-            yenikisi.Schaden = schade.SelectedIndex.ToString();
+            yenikisi.Karosserientyp = kasalist.Text;
+            yenikisi.Schaden = schade.Text;
+            yenikisi.Farbe = motorgüctxt.Text;
             kp.Guncelle(esarac, yenikisi);
             aracdata.ItemsSource = kp.Listele1();
 

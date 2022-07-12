@@ -72,20 +72,13 @@
             </Label>
 
         </Grid>
-        <Button x:Name="Open_File" Content="2" Margin="0,0,585,24"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
-        <Button x:Name="Open_File_Copy" Content="1" Margin="0,0,690,23"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" />
-        <Button x:Name="Open_File_Copy1" Content="4" Margin="0,0,407,27"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
-        <Button x:Name="Open_File_Copy2" Content="3" Margin="0,0,496,25"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
+        <Button x:Name="Open_File" Content="2" Margin="0,0,909,24"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
+        <Button x:Name="Open_File_Copy" Content="1" Margin="0,0,1014,23"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" />
+        <Button x:Name="Open_File_Copy1" Content="4" Margin="0,0,731,27"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
+        <Button x:Name="Open_File_Copy2" Content="3" Margin="0,0,820,25"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
         <Label Content="Personal Information" HorizontalAlignment="Left" Margin="35,9,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold" FontSize="14" Foreground="DarkOrange"/>
         <Grid Margin="34,318,866,27">
-            <Border BorderBrush="White" BorderThickness="1" Height="221" VerticalAlignment="Top" HorizontalAlignment="Left" Width="292" Margin="0,27,0,0">
-                <ComboBox x:Name="yakitcombo" Margin="155,144,6,52">
-                    <ComboBoxItem Content="Benzin"/>
-                    <ComboBoxItem Content="Dizel"/>
-                    <ComboBoxItem Content="Lpg"/>
-                    <ComboBoxItem Content="Elektrik"/>
-                </ComboBox>
-            </Border>
+            <Border BorderBrush="White" BorderThickness="1" Height="221" VerticalAlignment="Top" HorizontalAlignment="Left" Width="292" Margin="0,27,0,0"/>
             <Label x:Name="progresslbl2" Content="Model:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" Margin="3,26,0,0">
                 <Label.RenderTransform>
                     <TransformGroup>
@@ -151,6 +144,8 @@
             <TextBox x:Name="vitestxt" HorizontalAlignment="Left" Margin="155,102,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
             <TextBox x:Name="plakatxt" HorizontalAlignment="Left" Margin="155,137,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
             <TextBox x:Name="kasatxt" HorizontalAlignment="Left" Margin="155,207,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
+            <TextBox x:Name="markatxt" HorizontalAlignment="Left" Margin="155,69,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
+            <TextBox x:Name="yakıt_txt" HorizontalAlignment="Left" Margin="155,171,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         </Grid>
         <TextBox x:Name="adtxt" HorizontalAlignment="Left" Margin="191,41,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         <TextBox x:Name="soyadtxt" HorizontalAlignment="Left" Margin="192,76,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
@@ -158,38 +153,6 @@
         <TextBox x:Name="teltxt" HorizontalAlignment="Left" Margin="192,146,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         <TextBox x:Name="mailtxt" HorizontalAlignment="Left" Margin="192,181,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         <TextBox x:Name="ehlinotxt" HorizontalAlignment="Left" Margin="192,216,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <ComboBox x:Name="markacombo" Margin="190,385,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="14" HorizontalAlignment="Left" Width="128" Height="25" VerticalAlignment="Top">
-            <ComboBoxItem Content="Alfa-Romeo"/>
-            <ComboBoxItem Content="Aston Martin"/>
-            <ComboBoxItem Content="Audi"/>
-            <ComboBoxItem Content="Bentley"/>
-            <ComboBoxItem Content="Bmw"/>
-            <ComboBoxItem Content="Chevrolet"/>
-            <ComboBoxItem Content="Citroen"/>
-            <ComboBoxItem Content="Fiat"/>
-            <ComboBoxItem Content="Ford"/>
-            <ComboBoxItem Content="Honda"/>
-            <ComboBoxItem Content="Hyundai"/>
-            <ComboBoxItem Content="Jeep"/>
-            <ComboBoxItem Content="Kia"/>
-            <ComboBoxItem Content="Land Rover"/>
-            <ComboBoxItem Content="Lexus"/>
-            <ComboBoxItem Content="Mazda"/>
-            <ComboBoxItem Content="Mercedes"/>
-            <ComboBoxItem Content="Mini"/>
-            <ComboBoxItem Content="Mitsubishi"/>
-            <ComboBoxItem Content="Nissan"/>
-            <ComboBoxItem Content="Opel"/>
-            <ComboBoxItem Content="Peugeot"/>
-            <ComboBoxItem Content="Renault"/>
-            <ComboBoxItem Content="Rolls-Royce"/>
-            <ComboBoxItem Content="Skoda"/>
-            <ComboBoxItem Content="Suzuki"/>
-            <ComboBoxItem Content="Tesla"/>
-            <ComboBoxItem Content="Toyota"/>
-            <ComboBoxItem Content="Volkswagen"/>
-            <ComboBoxItem Content="Volvo"/>
-        </ComboBox>
         <ComboBox x:Name="bombacomba" Margin="472,140,591,475" Visibility="Hidden">
             <ComboBoxItem Content="Benzin"/>
             <ComboBoxItem Content="Elektrik"/>
@@ -261,12 +224,33 @@
             </Label>
 
         </Grid>
-        <TextBox x:Name="adtxt_Copy" HorizontalAlignment="Left" Margin="685,41,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="soyadtxt_Copy" HorizontalAlignment="Left" Margin="687,76,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="tctxt_Copy" HorizontalAlignment="Left" Margin="687,111,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="teltxt_Copy" HorizontalAlignment="Left" Margin="687,146,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="mailtxt_Copy" HorizontalAlignment="Left" Margin="687,181,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="ehlinotxt_Copy" HorizontalAlignment="Left" Margin="687,216,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
+        <TextBox x:Name="adtxt_Copy" HorizontalAlignment="Left" Margin="685,41,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
+        <TextBox x:Name="soyadtxt_Copy" HorizontalAlignment="Left" Margin="687,76,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
+        <TextBox x:Name="tctxt_Copy" HorizontalAlignment="Left" Margin="687,111,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
+        <TextBox x:Name="teltxt_Copy" HorizontalAlignment="Left" Margin="687,146,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
+        <TextBox x:Name="mailtxt_Copy" HorizontalAlignment="Left" Margin="687,181,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
+        <TextBox x:Name="ehlinotxt_Copy" HorizontalAlignment="Left" Margin="687,216,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
+        <TabControl Margin="482,244,0,0">
+            <TabItem Header="Kunden">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="musteripopodata" IsReadOnly="True" MouseDoubleClick="musteripopodata_MouseDoubleClick"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Auto">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="aracpopodata" IsReadOnly="True" MouseDoubleClick="aracpopodata_MouseDoubleClick"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Miete">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="mietedata" IsReadOnly="True" />
+
+                </Grid>
+
+            </TabItem>
+        </TabControl>
 
 
     </Grid>

@@ -22,10 +22,12 @@ namespace GetLos_App
     /// </summary>
     public partial class MainWindow : Window
     {
+        Window2 sasss= new Window2();
         public MainWindow()
         {
             InitializeComponent();
-            
+
+
         }
 
         private void aracbtn_Click(object sender, RoutedEventArgs e)
@@ -36,14 +38,29 @@ namespace GetLos_App
 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
-            Musteri ara = new Musteri();
-            ara.Show();
+            if (contrltxt.Text=="1"|| contrltxt.Text == "3")
+            {
+                Musteri ara = new Musteri();
+                ara.Show();
+            }
+            else
+            {
+                MessageBox.Show("Buna izniniz yok");
+            }
         }
 
         private void kiralama_Click(object sender, RoutedEventArgs e)
         {
-            Kira saaa = new Kira();   
-            saaa.Show();
+            if (contrltxt.Text == "1" || contrltxt.Text == "2")
+            {
+                Kira saaa = new Kira();
+                saaa.Show();
+            }
+            else
+            {
+                MessageBox.Show("Buna izniniz yok");
+            }
+            
 
         }
     }

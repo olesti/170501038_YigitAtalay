@@ -22,13 +22,23 @@ namespace GetLos_App
         public Kira()
         {
             InitializeComponent();
+            kp.Listele();
+            musteripopodata.ItemsSource = kp.Listele();
+            kp.Listele1();
+            aracpopodata.ItemsSource = kp.Listele1();
+
+
+
+
         }
 
         
         Class1 kp=new Class1(); 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            musteripopupxaml musteri = new musteripopupxaml();
+            musteri.Show();
+
             
 
         }
@@ -44,10 +54,34 @@ namespace GetLos_App
 
         private void datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
+            
+
+        }
+
+        private void aracpopodata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var asa = (aracclass)aracpopodata.SelectedItem as aracclass;
+            markatxt.Text = asa.Marke;
+            modeltxt.Text = asa.Model;
+            yakıt_txt.Text = asa.Kraftstoff;
+            plakatxt.Text = asa.Nummernschild;
+            vitestxt.Text = asa.Getriebetype;
+            kasatxt.Text = asa.Karosserientyp;
 
 
 
+        }
+
+        private void musteripopodata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var sas = (mustericlass)musteripopodata.SelectedItem as mustericlass;
+
+            adtxt.Text = sas.Ad;
+            soyadtxt.Text = sas.Soyad;
+            tctxt.Text = sas.Tcnummer;
+            teltxt.Text = sas.Telefonu;
+            mailtxt.Text = sas.Mail;
+            ehlinotxt.Text = sas.Ehliyetno.ToString();
         }
     }
 }

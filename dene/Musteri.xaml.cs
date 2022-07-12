@@ -8,7 +8,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -77,41 +76,109 @@ namespace GetLos_App
 
         }*/
 
+        bool xy;
 
-        
+        private bool sa(mustericlass asaa)
+        {
+            MySqlConnection con = new MySqlConnection("Server=localhost;Database=users;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
 
+            MySqlDataAdapter baglayici = new MySqlDataAdapter();
+            MySqlCommand komut = new MySqlCommand("Select * from testdb.musteri where mus_tc = '" + tcnummertxt.Text + "' OR mus_ehlino = '" + ehliyetnotxt.Text + "'", con);
+            con.Open();
+            MySqlDataReader reader = komut.ExecuteReader();
+
+            if (reader.Read())
+            {
+                xy = false;
+
+            }
+            else
+            {
+                xy = true;
+
+
+            }
+
+            return xy;
+        }
+        bool yz = true;
+        private bool txttt()
+        {
+            if (adtxt.Text == "" || soyadtxt.Text == ""
+                || tcnummertxt.Text == "" || telefonnummertxt.Text == "" || ehliyetnotxt.Text == ""
+                || emailtxt.Text == "")
+            {
+                yz = false;
+            }
+            else
+            {
+                yz = true;
+            }
+            return yz;
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
+            try
+            {
+                mustericlass yenimus = new mustericlass();
+                txttt();
+                if (yz)
+                {
+                    yenimus.Ad = adtxt.Text;
+                    yenimus.Soyad = soyadtxt.Text;
+                    yenimus.Tcnummer = tcnummertxt.Text;
+                    yenimus.Telefonu = telefonnummertxt.Text;
+                    yenimus.Mail = emailtxt.Text;
+                    yenimus.Adresse = adrestxt.Text;
+                    yenimus.Ehliyetno = Convert.ToInt32(ehliyetnotxt.Text);
+                    yenimus.Ehliyett = ehliyetturtxt.Text;
+                    sa(yenimus);
+                    if (xy)
+                    {
 
 
-            mustericlass yenimus = new mustericlass();
+                        kp.Ekle1(yenimus);
+                        kp.Listele();
+                        musteridata.ItemsSource = kp.Listele();
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Sie können denselben Kunden nicht erneut hinzufügen.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sie müssen jedes Feld ausfüllen");
+                }
+               
+               
+            }
+            catch (Exception ex)
+            {
 
-
-            yenimus.Ad = adtxt.Text;
-            yenimus.Soyad = soyadtxt.Text;
-            yenimus.Tcnummer = tcnummertxt.Text;
-            yenimus.Telefonu = telefonnummertxt.Text;
-            yenimus.Mail = emailtxt.Text;
-            yenimus.Adresse = adrestxt.Text;
-            yenimus.Ehliyetno = Convert.ToInt32(ehliyetnotxt.Text);
-            yenimus.Ehliyett = ehliyetturtxt.Text;
-
-            kp.Ekle1(yenimus);
-            kp.Listele();
-            musteridata.ItemsSource =kp.Listele();
+                System.Windows.MessageBox.Show(ex.ToString());
+            }
+           
 
         }
         private void musteridata_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             mustericlass selectedEmployee = musteridata.SelectedItem as mustericlass;
-            adtxt.Text = selectedEmployee.Ad;
-            soyadtxt.Text = selectedEmployee.Soyad;
-            adrestxt.Text = selectedEmployee.Adresse;
-            ehliyetnotxt.Text = selectedEmployee.Ehliyetno.ToString();
-            ehliyetturtxt.Text = selectedEmployee.Ehliyett;
-            emailtxt.Text = selectedEmployee.Mail;
-            tcnummertxt.Text = selectedEmployee.Tcnummer;
-            telefonnummertxt.Text = selectedEmployee.Telefonu;
+
+            if (musteridata.SelectedItem != null)
+            {
+                adtxt.Text = selectedEmployee.Ad;
+                soyadtxt.Text = selectedEmployee.Soyad;
+                adrestxt.Text = selectedEmployee.Adresse;
+                ehliyetnotxt.Text = selectedEmployee.Ehliyetno.ToString();
+                ehliyetturtxt.Text = selectedEmployee.Ehliyett;
+                emailtxt.Text = selectedEmployee.Mail;
+                tcnummertxt.Text = selectedEmployee.Tcnummer;
+                telefonnummertxt.Text = selectedEmployee.Telefonu;
+            }
+            
             
             
             
@@ -140,8 +207,46 @@ namespace GetLos_App
             mustericlass aracclass2 = new mustericlass();
             aracclass2 = (mustericlass)musteridata.SelectedItem as mustericlass;
             kp.Sil1(aracclass2);
+            adtxt.Text = null;
+            soyadtxt.Text = null;
+            adrestxt.Text = null;
+            ehliyetnotxt.Text = null;
+            ehliyetturtxt.Text = null;
+            emailtxt.Text = null;
+            tcnummertxt.Text = null;
+            telefonnummertxt.Text = null;
             kp.Listele();
             musteridata.ItemsSource = kp.Listele();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            txttt();
+
+            mustericlass esarac = new mustericlass();
+            esarac = (mustericlass)musteridata.SelectedItem as mustericlass;
+            mustericlass yenikisi = new mustericlass();
+            if (yz)
+            {
+                yenikisi.No = esarac.No;
+                yenikisi.Ad = adtxt.Text;
+                yenikisi.Soyad = soyadtxt.Text;
+                yenikisi.Adresse = adrestxt.Text;
+                yenikisi.Telefonu = telefonnummertxt.Text;
+                yenikisi.Ehliyett = ehliyetturtxt.Text;
+                yenikisi.Ehliyetno = Convert.ToInt32(ehliyetnotxt.Text);
+                yenikisi.Mail = emailtxt.Text;
+                yenikisi.Tcnummer = tcnummertxt.Text;
+                kp.Guncelle1(yenikisi);
+                musteridata.ItemsSource = kp.Listele();
+                
+            }
+            else
+            {
+                MessageBox.Show("Sie müssen jedes Feld ausfüllen");
+            }
+
+
         }
     }
 }

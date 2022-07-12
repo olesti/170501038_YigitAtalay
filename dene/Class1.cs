@@ -61,7 +61,7 @@ namespace GetLos_App
         {
             try
             {
-                MySqlCommand komut = new MySqlCommand("Delete From arac Where arac_no1=" + k.No + "", con);
+                MySqlCommand komut = new MySqlCommand("Delete From arac Where arac_no1=" + k.No  , con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }
@@ -82,7 +82,7 @@ namespace GetLos_App
         {
             try
             {
-                MySqlCommand komut = new MySqlCommand("Delete From arac Where mus_no=" + k.No + "", con);
+                MySqlCommand komut = new MySqlCommand("Delete From musteri Where mus_no=" + k.No, con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }
@@ -101,10 +101,56 @@ namespace GetLos_App
         }
         public void Guncelle(aracclass earac, aracclass yarac)
         {
+           
             try
             {
-                MySqlCommand komut = new MySqlCommand("Update arac SET plaka='" + yarac.Nummernschild + "',marka='" + yarac.Marke + "',yas='" + yarac.Alter + "',yakıt='" + yarac.Kraftstoff + "',vites='" + yarac.Getriebetype 
-                    + "',km='" + yarac.Km + "',kasa='" + yarac.Karosserientyp + "',kapı='" + yarac.Farbe + "',model='" + yarac.Model + "',kazali='" + yarac.Schaden  + "' Where plaka=" + earac.Nummernschild + "",con);
+                if (yarac.Schaden.ToString()== "unbeschädigt")
+                {
+                    yarac.Schaden = "0";
+                }
+                else
+                {
+                    yarac.Schaden = "1";
+
+                }
+                MySqlCommand komut = new MySqlCommand("Update testdb.arac SET marka='" + yarac.Marke.ToString() + "', yas='" + yarac.Alter.ToString() + "', kapı='" + yarac.Farbe.ToString()
+                    + "', yakıt='" + yarac.Kraftstoff.ToString() + "', vites='" + yarac.Getriebetype.ToString() + "', km='" + yarac.Km.ToString() + "', kasa='" + yarac.Karosserientyp.ToString() + "', kazali='" + yarac.Schaden.ToString()
+                    + "' Where plaka= '" + earac.Nummernschild.ToString() + "'", con);
+                
+                /*
+                MySqlCommand komut = new MySqlCommand("Update testdb.arac SET marka='" + yarac.Marke.ToString() + "', yas='" + yarac.Alter.ToString() + "', yakıt='" + yarac.Kraftstoff.ToString() + "', vites='" + yarac.Getriebetype.ToString() + "', km='" + yarac.Km.ToString() + "', kasa='" + yarac.Karosserientyp.ToString() + "', kapı='" + yarac.Farbe.ToString() + "', model='" + yarac.Model.ToString() + "', kazali='" + yarac.Schaden.ToString() + "' Where plaka='" + earac.Nummernschild.ToString() + "'", con);
+                */
+                con.Open();
+                komut.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+
+        }
+
+        public MySqlConnection GetCon()
+        {
+            return con;
+        }
+
+        public void Guncelle1(mustericlass s)
+        {
+
+            try
+            {
+                MySqlCommand komut = new MySqlCommand("Update testdb.musteri SET mus_adi='" + s.Ad.ToString() + "', mus_soyadi='" + s.Soyad.ToString() + "', mus_tc='" + s.Tcnummer.ToString()
+                    + "', mus_mail='" + s.Mail.ToString()  + "', mus_adres='" + s.Adresse.ToString() 
+                    + "' Where mus_no= '" + s.No.ToString() + "'", con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }

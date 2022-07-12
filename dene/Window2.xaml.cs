@@ -29,7 +29,7 @@ namespace GetLos_App
 
 
         }
-
+        static int control;
         private void loginbutton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -47,13 +47,17 @@ namespace GetLos_App
                 MySqlConnection con = new MySqlConnection("Server=localhost;Database=users;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
 
                 MySqlDataAdapter baglayici = new MySqlDataAdapter();
-                MySqlCommand komut = new MySqlCommand("Select * from users where username = '" + usernametxt.Text + "' AND password = '" + passwordtxt.Text + "'", con);
+                //MySqlCommand komut = new MySqlCommand("Select * from users where username = '" + usernametxt.Text + "' AND password = '" + passwordtxt.Text + "'", con);
+                MySqlCommand komut = new MySqlCommand("Select * from users.userslast where username = '" + usernametxt.Text + "' AND password = '" + passwordtxt.Text + "'", con);
+
                 con.Open();
                 MySqlDataReader reader = komut.ExecuteReader();
 
                 if (reader.Read())
                 {
+                    control=Convert.ToInt32(reader[4]);
                     MainWindow sa =new MainWindow();
+                    sa.contrltxt.Text = control.ToString();
                     sa.Show();
                     this.Close();
                 }
@@ -76,6 +80,19 @@ namespace GetLos_App
         {
             Window1 sa = new Window1();
             sa.Show();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool K = Keyboard.IsKeyDown(Key.K);
+            bool shift = Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
+            if (K && shift)
+            {
+                MainWindow mainWindow=  new MainWindow();
+                mainWindow.Show();
+                this.Close();
+                mainWindow.contrltxt.Text = "2";
+            }
         }
     }
 }

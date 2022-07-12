@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GetLos_App"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="GetLos_App.Window2"
         mc:Ignorable="d"
-        Title="Loginscreen" Height="320" Width="400">
+        Title="Loginscreen" Height="320" Width="400" KeyDown="Window_KeyDown">
     <Grid Background="#FF303943">
         <Grid HorizontalAlignment="Center" Height="26" Margin="0,114,0,0" VerticalAlignment="Top" Width="280">
             <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="-1,0,0,0"/>
