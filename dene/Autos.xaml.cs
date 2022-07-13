@@ -23,6 +23,7 @@ using System.Data;
 using System.Windows.Documents;
 using System.Windows.Documents.Serialization;
 using Syncfusion.SfDataGrid;
+using System.Text.RegularExpressions;
 //using System.Windows.Xps;
 //using System.Windows.Xps.Packaging;
 
@@ -107,6 +108,7 @@ namespace GetLos_App
             return yz;
 
         }
+        
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             txttt();
@@ -115,28 +117,25 @@ namespace GetLos_App
             
             if (yz)
             {
-                yeniarac.No = "0";
-                yeniarac.Marke = markatxt.Text;
-                yeniarac.Model = modeltxt.Text;
-                yeniarac.Nummernschild = plakatxt.Text;
-                yeniarac.Alter = Convert.ToInt32(altertxt.Text);
-                yeniarac.Kraftstoff = "Benzin";
-                yeniarac.Getriebetype = şanzımantxt.Text;
-                yeniarac.Km = kmtxt.Text;
-                yeniarac.Karosserientyp = "Sedan";
-                yeniarac.Schaden = schade.SelectedIndex.ToString();
-                yeniarac.Farbe = "Schwarz";
-                yeniarac.Kosten = kostentxt.Text;
-                if (xy)
-                {
-                    kp.Ekle(yeniarac);
-                    aracdata.ItemsSource = kp.Listele1();
 
-                    kp.Listele();
+                if (altertxt.Text.Length == 4 && (plakatxt.Text.Length<8 && plakatxt.Text.Length>6 ))
+                { 
+                    if (xy)
+                    {
+                        kp.Ekle(yeniarac);
+                        aracdata.ItemsSource = kp.Listele1();
+
+                        kp.Listele();
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
+
+                    }
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
+                    MessageBox.Show("Alter 4 haneli olmalı \nGirilen Plakayı kontrol edin");
 
                 }
             }
@@ -230,6 +229,7 @@ namespace GetLos_App
             kp.Sil(aracclass2);
             aracdata.ItemsSource = kp.Listele1();
 
+
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -249,8 +249,34 @@ namespace GetLos_App
             yenikisi.Schaden = schade.Text;
             yenikisi.Farbe = motorgüctxt.Text;
             yenikisi.Kosten = kostentxt.Text;
-            kp.Guncelle(esarac, yenikisi);
-            aracdata.ItemsSource = kp.Listele1();
+            if (yz)
+            {
+
+                if (altertxt.Text.Length == 4 && (plakatxt.Text.Length < 8 && plakatxt.Text.Length > 6))
+                {
+                    if (xy)
+                    {
+                        kp.Guncelle(esarac, yenikisi);
+                        aracdata.ItemsSource = kp.Listele1();
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Alter 4 haneli olmalı \nGirilen Plakayı kontrol edin");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sie müssen jedes Feld ausfüllen");
+            }
+
+            
 
 
         }
@@ -266,56 +292,73 @@ namespace GetLos_App
 
 
         }
-        /*
-        public void Print_WPF_Preview(FrameworkElement wpf_Element)
 
+        private void kostentxt_KeyDown(object sender, KeyEventArgs e)
         {
 
-            //------------< WPF_Print_current_Window >------------
+        }
 
-            //--< create xps document >--
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
 
-            XpsDocument doc = new XpsDocument("print_previw.xps", FileAccess.ReadWrite);
-
-            XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
-
-            SerializerWriterCollator preview_Document = writer.CreateVisualsCollator();
-
-            preview_Document.BeginBatchWrite();
-
-            preview_Document.Write(wpf_Element);  //*this or wpf xaml control
-
-            preview_Document.EndBatchWrite();
-
-            //--</ create xps document >--
-
-
-
-            //var doc2 = new XpsDocument("Druckausgabe.xps", FileAccess.Read);
-
-
-
-            FixedDocumentSequence preview = doc.GetFixedDocumentSequence();
-
-
-
-            var window = new Window();
-
-            window.Content = new DocumentViewer { Document = preview };
-
-            window.ShowDialog();
-
-
-
-            doc.Close();
-
-            //------------</ WPF_Print_current_Window >------------
-
-
-
-
+        private void PreviewTextInput1(object sender, TextCompositionEventArgs e)
+        {
 
         }
-        */
+
+        /*
+public void Print_WPF_Preview(FrameworkElement wpf_Element)
+
+{
+
+   //------------< WPF_Print_current_Window >------------
+
+   //--< create xps document >--
+
+   XpsDocument doc = new XpsDocument("print_previw.xps", FileAccess.ReadWrite);
+
+   XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
+
+   SerializerWriterCollator preview_Document = writer.CreateVisualsCollator();
+
+   preview_Document.BeginBatchWrite();
+
+   preview_Document.Write(wpf_Element);  //*this or wpf xaml control
+
+   preview_Document.EndBatchWrite();
+
+   //--</ create xps document >--
+
+
+
+   //var doc2 = new XpsDocument("Druckausgabe.xps", FileAccess.Read);
+
+
+
+   FixedDocumentSequence preview = doc.GetFixedDocumentSequence();
+
+
+
+   var window = new Window();
+
+   window.Content = new DocumentViewer { Document = preview };
+
+   window.ShowDialog();
+
+
+
+   doc.Close();
+
+   //------------</ WPF_Print_current_Window >------------
+
+
+
+
+
+}
+*/
     }
 }

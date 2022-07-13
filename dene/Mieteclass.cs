@@ -74,12 +74,6 @@ namespace GetLos_App
             get { return _model; }
             set { _model = value; }
         }
-        string _Karosserietyp;
-        public string Karosserietyp
-        {
-            get { return _Karosserietyp; }
-            set { _Karosserietyp = value; }
-        }
         string _kosten;
         public string Kosten
         {

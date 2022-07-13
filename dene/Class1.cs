@@ -261,6 +261,9 @@ namespace GetLos_App
             }
             
         }
+        
+        Mieteclass k1 = new Mieteclass();
+
         public List<Mieteclass> Listelemiete()
         {
             //con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
@@ -268,6 +271,7 @@ namespace GetLos_App
             try
             {
                 List<Mieteclass> mietelist = new List<Mieteclass>();
+                List<Mieteclass> mietelist2 = new List<Mieteclass>();
 
                 MySqlDataAdapter baglayici = new MySqlDataAdapter();
                 // cmd.CommandText = "Select * from musteri";
@@ -296,7 +300,10 @@ namespace GetLos_App
                     k.Ilkdate = Convert.ToDateTime(reader[13].ToString());
                     k.Sondate = Convert.ToDateTime(reader[14].ToString());
                     mietelist.Add(k);
-
+                    k1.Ilkdate = Convert.ToDateTime(reader[13].ToString());
+                    k1.Sondate = Convert.ToDateTime(reader[14].ToString());
+                    mietelist2.Add(k1);
+                    
 
                 }
                 return mietelist;
@@ -316,6 +323,49 @@ namespace GetLos_App
             }
 
         }
-        
+        public void Eklemiete(mustericlass musekle, aracclass arekle, Mieteclass saaaa)
+        {
+            Kira saaas = new Kira();
+            try
+            {
+                MySqlCommand komut = new MySqlCommand("Insert Into miete ( Vorname, Nachname, Tcnummer, Telefonnummer, Email, Ehliyetno, Model, Marke, Nummerschild, Kraftstoff, GesamtKosten, Rechnungsno, Basdate, Sondate) Values " +
+                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaas.kostentxt.Text + "','" + saaas.rechnungtxt.Text + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd HH:mm:ss") + "')", con);
+                con.Open();
+                komut.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        public void Silmiete(Mieteclass k)
+        {
+            try
+            {
+                MySqlCommand komut = new MySqlCommand("Delete From miete Where mieteno=" + k.Mieteno, con);
+                con.Open();
+                komut.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
     }
 }

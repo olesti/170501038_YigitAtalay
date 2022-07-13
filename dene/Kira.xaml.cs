@@ -112,36 +112,18 @@ namespace GetLos_App
             
 
         }
-        public void Eklemiete(mustericlass musekle, aracclass arekle, Mieteclass saaaa)
-        {
-            Kira saaas = new Kira();
-            try
-            {
-                MySqlCommand komut = new MySqlCommand("Insert Into miete ( Vorname, Nachname, Tcnummer, Telefonnummer, Email, Ehliyetno, Model, Marke, Nummerschild, Kraftstoff, GesamtKosten, Rechnungsno, Basdate, Sondate) Values " +
-                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaas.kostentxt.Text + "','" + saaas.rechnungtxt.Text + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd HH:mm:ss") + "')", con);
-                con.Open();
-                komut.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
-            finally
-            {
-                if (con != null)
-                {
-                    con.Close();
-                }
-            }
-        }
         bool saaatt;
         bool saat(DateTime ass, DateTime ass1)
         {
             DateTime yeni1 = time1.DateTime.Value;
             DateTime yeni2 = time2.DateTime.Value;
+            /*
+            for (int i = 0; i < mietedata.Items.Count; i++)
+            {
 
-            if ((ass < yeni1 && yeni1 < ass1) || (ass < yeni2 && yeni2 < ass1))
+            }*/
+            if ((yeni1 < ass && ass < yeni2) || (yeni1 < ass1 && ass1 < yeni2))
             {
                 saaatt = false;
 
@@ -178,6 +160,9 @@ namespace GetLos_App
             miete.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             miete.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             saat(miete.Ilkdate, miete.Sondate);
+            List<Mieteclass> studentList = new List<Mieteclass>();
+
+            Console.WriteLine();
             try
             {
                 
@@ -224,6 +209,15 @@ namespace GetLos_App
         private void time1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Open_File_Click(object sender, RoutedEventArgs e)
+        {
+            Mieteclass aracclass2 = new Mieteclass();
+            aracclass2 = (Mieteclass)mietedata.SelectedItem as Mieteclass;
+            kp.Silmiete(aracclass2); ;
+            mietedata.ItemsSource = kp.Listelemiete();
+            
         }
     }
 }

@@ -15,7 +15,7 @@
                 <Label Content="Model" VerticalAlignment="Top" Margin="0,26,0,0" HorizontalAlignment="Left" FontWeight="Bold"/>
                 <TextBox x:Name="markatxt" TextWrapping="Wrap" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F" VerticalAlignment="Top" Margin="108,6,0,0" HorizontalAlignment="Left"/>
                 <Label Content="Marke" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
-                <TextBox x:Name="altertxt" HorizontalAlignment="Left" Margin="108,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+                <TextBox x:Name="altertxt" PreviewTextInput="PreviewTextInput" HorizontalAlignment="Left" Margin="108,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
                 <Label Content="Fahrzeugalter" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <ComboBox x:Name="yakıtlist"  Margin="109,80,0,26" Background="#FFFF7F7F" BorderBrush="{x:Null}">
                     <ComboBoxItem Name="benzin" Content="Benzin" />
@@ -24,7 +24,7 @@
                     <ComboBoxItem Name="lpg" Content="Lpg"/>
                 </ComboBox>
                 <Label Content="Nummernschild" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                <TextBox x:Name="plakatxt" HorizontalAlignment="Left" Margin="108,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+                <TextBox x:Name="plakatxt" PreviewTextInput="PreviewTextInput1" HorizontalAlignment="Left" Margin="108,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="102" VerticalAlignment="Top">
                 <Image HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="87" Source="/car-rent.png"/>
@@ -37,7 +37,7 @@
         <Grid Height="78" Width="228" VerticalAlignment="Top" Margin="0,32,380,0" HorizontalAlignment="Right">
             <TextBox x:Name="motorgüctxt" HorizontalAlignment="Left" Margin="108,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             <Label Content="Farbe" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox x:Name="kmtxt" HorizontalAlignment="Left" Margin="108,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+            <TextBox x:Name="kmtxt" PreviewTextInput="PreviewTextInput" HorizontalAlignment="Left" Margin="108,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             <Label Content="Km" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox x:Name="şanzımantxt" HorizontalAlignment="Left" Margin="108,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             <Label Content="Getriebetyp" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -57,7 +57,7 @@
                 <ComboBoxItem Content="beschädigt"/>
             </ComboBox>
             <Label Content="Kosten" HorizontalAlignment="Left" Margin="-1,51,0,0" VerticalAlignment="Top" Width="49" FontWeight="Bold"/>
-            <TextBox x:Name="kostentxt" HorizontalAlignment="Left" Margin="108,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
+            <TextBox x:Name="kostentxt" HorizontalAlignment="Left" Margin="108,55,0,0" TextWrapping="Wrap" PreviewTextInput="PreviewTextInput" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F" KeyDown="kostentxt_KeyDown"/>
 
         </Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="520" Margin="219,204,0,0" Height="81">

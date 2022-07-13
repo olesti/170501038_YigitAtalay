@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GetLos_App"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" x:Class="GetLos_App.Kira"
         mc:Ignorable="d"
-        Title="Kira" Height="672" Width="1200">
+        Title="Kira" Height="800" Width="1389">
     <Grid Background="#FF303943">
         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="226" Margin="36,35,0,0" VerticalAlignment="Top" Width="331" RenderTransformOrigin="0.667,0.594"/>
         <Grid Margin="32,35,983,403">
@@ -72,92 +72,90 @@
             </Label>
 
         </Grid>
-        <Button x:Name="Open_File" Content="2" Margin="0,0,909,14"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
-        <Button x:Name="Open_File_Copy" Content="1" Margin="0,0,1014,13"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" Click="Open_File_Copy_Click" />
-        <Button x:Name="Open_File_Copy1" Content="4" Margin="0,0,731,17"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
-        <Button x:Name="Open_File_Copy2" Content="3" Margin="0,0,820,15"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
+        <Button x:Name="Open_File" Content="2" Margin="0,0,749,654"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" Click="Open_File_Click"/>
+        <Button x:Name="Open_File_Copy" Content="1" Margin="0,0,824,658"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" Click="Open_File_Copy_Click" />
+        <Button x:Name="Open_File_Copy1" Content="4" Margin="762,77,0,0"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="56" Foreground="DarkOrange"/>
+        <Button x:Name="Open_File_Copy2" Content="3" Margin="0,0,660,655"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange"/>
         <Label Content="Personal Information" HorizontalAlignment="Left" Margin="35,9,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold" FontSize="14" Foreground="DarkOrange"/>
-        <Grid Margin="34,298,809,66">
-            <Border BorderBrush="White" BorderThickness="1" Height="254" VerticalAlignment="Top" HorizontalAlignment="Left" Width="333" Margin="0,27,0,0"/>
-            <Label x:Name="progresslbl2" Content="Model:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" Margin="3,26,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.114"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="programtimelbl1" Content="Marke:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" Margin="3,60,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="oilcoolinglbl3" Content="Getriebetyp:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" Margin="3,95,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="aircleaning4" Content="Nummernschild:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="148" Cursor="Arrow" Margin="3,129,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="surfacer2eadinglbl" Content="Fahrzeugkraftstoff:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,164,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="surfacer2eadinglbl_Copy" Content="Karosserietyp:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,199,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label Content="Auto Information" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold" FontSize="14" Foreground="DarkOrange"/>
-            <TextBox x:Name="modeltxt" HorizontalAlignment="Left" Margin="189,32,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="vitestxt" HorizontalAlignment="Left" Margin="190,102,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="plakatxt" HorizontalAlignment="Left" Margin="190,137,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="kasatxt" HorizontalAlignment="Left" Margin="190,207,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="markatxt" HorizontalAlignment="Left" Margin="190,69,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="yakıt_txt" HorizontalAlignment="Left" Margin="190,171,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <Label x:Name="surfacer2eadinglbl_Copy1" Content="Kosten:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,235,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <TextBox x:Name="kostentxt" HorizontalAlignment="Left" Margin="190,243,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        </Grid>
+        <Border BorderBrush="White" BorderThickness="1" Height="254" Width="333" VerticalAlignment="Top" Margin="34,297,0,0" HorizontalAlignment="Left"/>
+        <Label x:Name="progresslbl2" Content="Model:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" VerticalAlignment="Top" Margin="37,296,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.114"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="programtimelbl1" Content="Marke:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="37,330,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="oilcoolinglbl3" Content="Getriebetyp:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="37,365,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="aircleaning4" Content="Nummernschild:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="148" Cursor="Arrow" VerticalAlignment="Top" Margin="37,399,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="surfacer2eadinglbl" Content="Fahrzeugkraftstoff:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" VerticalAlignment="Top" Margin="35,434,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="surfacer2eadinglbl_Copy" Content="Karosserietyp:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" VerticalAlignment="Top" Margin="35,469,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Auto Information" Width="148" FontWeight="Bold" FontSize="14" Foreground="DarkOrange" VerticalAlignment="Top" Margin="37,270,0,0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="modeltxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" Focusable="False" VerticalAlignment="Top" Margin="223,302,0,0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="vitestxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" Focusable="False" VerticalAlignment="Top" Margin="224,372,0,0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="plakatxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" Focusable="False" VerticalAlignment="Top" Margin="224,407,0,0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="kasatxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" Focusable="False" VerticalAlignment="Top" Margin="224,477,0,0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="markatxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" Focusable="False" VerticalAlignment="Top" Margin="224,339,0,0" HorizontalAlignment="Left"/>
+        <TextBox x:Name="yakıt_txt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" Focusable="False" VerticalAlignment="Top" Margin="224,441,0,0" HorizontalAlignment="Left"/>
+        <Label x:Name="surfacer2eadinglbl_Copy1" Content="Kosten:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="35,505,0,0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="kostentxt" HorizontalAlignment="Left" Margin="224,513,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         <TextBox x:Name="adtxt" HorizontalAlignment="Left" Margin="221,41,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         <TextBox x:Name="soyadtxt" HorizontalAlignment="Left" Margin="222,76,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
         <TextBox x:Name="tctxt" HorizontalAlignment="Left" Margin="222,111,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
@@ -170,71 +168,6 @@
             <ComboBoxItem Content="Dizel"/>
             <ComboBoxItem Content="Lpg"/>
         </ComboBox>
-        <Label x:Name="progresslbl1" Content="Rechnungsnummer" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" VerticalAlignment="Top" Margin="535,35,0,0" HorizontalAlignment="Left">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.091000000000008185"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.114"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="programtimelbl2" Content="Datum:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="535,69,0,0" HorizontalAlignment="Left">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.091000000000008185"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.08"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="oilcoolinglbl1" Content="Preis:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="535,134,0,0" HorizontalAlignment="Left">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.091000000000008185"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.08"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="aircleaning1" Content="Zahlungsart :" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="148" Cursor="Arrow" VerticalAlignment="Top" Margin="835,34,0,0" HorizontalAlignment="Left">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.091000000000008185"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.08"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="surfacereadinglbl1" Content="Kunde No:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" VerticalAlignment="Top" Margin="833,69,0,0" HorizontalAlignment="Left">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.091000000000008185"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.08"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="surfacereadinglbl_Copy1" Content="Autosnummer:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" VerticalAlignment="Top" Margin="833,105,0,0" HorizontalAlignment="Left">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.091000000000008185"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.08"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <TextBox x:Name="rechnungtxt" HorizontalAlignment="Left" Margin="685,41,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
-        <TextBox x:Name="preistxt" HorizontalAlignment="Left" Margin="687,141,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
-        <TextBox x:Name="teltxt_Copy" HorizontalAlignment="Left" Margin="987,42,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
-        <TextBox x:Name="time1txt" HorizontalAlignment="Left" Margin="987,77,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
-        <TextBox x:Name="time2txt" HorizontalAlignment="Left" Margin="987,112,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" />
         <TabControl Margin="474,187,8,57">
             <TabItem Header="Kunden">
                 <Grid Background="#FFE5E5E5">
@@ -256,10 +189,18 @@
 
             </TabItem>
         </TabControl>
-
-
-        <Syncfusion:DateTimeEdit x:Name="time1" DateTime="1/1/2020" HorizontalAlignment="Left" Height="23" Margin="689,78,0,0" TextWrapping="Wrap" Text="DateTimeEdit" VerticalAlignment="Top" Width="120" TextChanged="time1_TextChanged"/>
-        <Label x:Name="programtimelbl2_Copy" Content="Datum:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="535,99,0,0" HorizontalAlignment="Left">
+        <DatePicker Name="timenormal" HorizontalAlignment="Left" Margin="411,119,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="progresslbl1" Content="Rechnungsnummer" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="164" Cursor="Arrow" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,571,0,0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.114"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="programtimelbl2" Content="Datum:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="44,607,0,0" HorizontalAlignment="Left">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -269,8 +210,42 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Syncfusion:DateTimeEdit x:Name="time2" DateTime="1/1/2020" Pattern="ShortDate" HorizontalAlignment="Left" Height="23" Margin="689,108,0,0" TextWrapping="Wrap" Text="DateTimeEdit" VerticalAlignment="Top" Width="120" TextChanged="time2_TextChanged"/>
-        <DatePicker Name="timenormal" HorizontalAlignment="Left" Margin="411,119,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="oilcoolinglbl1" Content="Preis:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="44,670,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="aircleaning1" Content="Zahlungsart :" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="148" Cursor="Arrow" VerticalAlignment="Top" Margin="44,708,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="rechnungtxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Margin="223,577,0,0" HorizontalAlignment="Left" />
+        <TextBox x:Name="preistxt" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Margin="224,677,0,0" HorizontalAlignment="Left" />
+        <TextBox x:Name="teltxt_Copy" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Margin="224,715,0,0" HorizontalAlignment="Left" />
+        <Syncfusion:DateTimeEdit x:Name="time1" DateTime="1/1/2020" Height="23" TextWrapping="Wrap" Text="DateTimeEdit" Width="120" TextChanged="time1_TextChanged" VerticalAlignment="Top" Margin="226,614,0,0" HorizontalAlignment="Left"/>
+        <Label x:Name="programtimelbl2_Copy" Content="Datum:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" VerticalAlignment="Top" Margin="44,635,0,0" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.091000000000008185"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.08"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Syncfusion:DateTimeEdit x:Name="time2" DateTime="1/1/2020" Pattern="ShortDate" Height="23" TextWrapping="Wrap" Text="DateTimeEdit" Width="120" TextChanged="time2_TextChanged" VerticalAlignment="Top" Margin="226,645,0,0" HorizontalAlignment="Left"/>
+        <Border BorderBrush="White" BorderThickness="1" Height="157" Width="152" VerticalAlignment="Top" Margin="383,628,0,0" HorizontalAlignment="Left"/>
 
 
     </Grid>
