@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,13 +27,14 @@ namespace GetLos_App
             musteripopodata.ItemsSource = kp.Listele();
             kp.Listele1();
             aracpopodata.ItemsSource = kp.Listele1();
-
-
+            time1.DateTime = DateTime.Now;
+            time2.DateTime = DateTime.Now;
+            kp.Listelemiete();
+            mietedata.ItemsSource = kp.Listelemiete();
 
 
         }
 
-        
         Class1 kp=new Class1(); 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
@@ -57,7 +59,7 @@ namespace GetLos_App
             
 
         }
-
+        
         private void aracpopodata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var asa = (aracclass)aracpopodata.SelectedItem as aracclass;
@@ -67,9 +69,9 @@ namespace GetLos_App
             plakatxt.Text = asa.Nummernschild;
             vitestxt.Text = asa.Getriebetype;
             kasatxt.Text = asa.Karosserientyp;
+            kostentxt.Text = asa.Kosten.Substring(0, asa.Kosten.Length - 1); ;
 
-
-
+            
         }
 
         private void musteripopodata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -82,6 +84,146 @@ namespace GetLos_App
             teltxt.Text = sas.Telefonu;
             mailtxt.Text = sas.Mail;
             ehlinotxt.Text = sas.Ehliyetno.ToString();
+        }
+
+        private void musteripopodata_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        int? gun=null;
+        
+        private void time2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DateTime bugunTarihi = time1.DateTime.Value;
+            DateTime sinavTarihi = time2.DateTime.Value;
+
+            TimeSpan ts = sinavTarihi - bugunTarihi;
+            gun = ts.Days;
+            teltxt_Copy.Text = "Kalan Gün : " + ts.Days.ToString();
+            if (kostentxt.Text != "")
+            {
+                if (gun != null && gun != 0)
+                {
+                    preistxt.Text = (gun * Convert.ToInt32(kostentxt.Text)).ToString();
+                    time1txt.Text = time1.DateTime.Value.ToString();
+                    time2txt.Text = timenormal.ToString();
+                }
+            }
+            
+
+        }
+        public void Eklemiete(mustericlass musekle, aracclass arekle, Mieteclass saaaa)
+        {
+            Kira saaas = new Kira();
+            try
+            {
+                MySqlCommand komut = new MySqlCommand("Insert Into miete ( Vorname, Nachname, Tcnummer, Telefonnummer, Email, Ehliyetno, Model, Marke, Nummerschild, Kraftstoff, GesamtKosten, Rechnungsno, Basdate, Sondate) Values " +
+                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaas.kostentxt.Text + "','" + saaas.rechnungtxt.Text + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd HH:mm:ss") + "')", con);
+                con.Open();
+                komut.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+        bool saaatt;
+        bool saat(DateTime ass, DateTime ass1)
+        {
+            DateTime yeni1 = time1.DateTime.Value;
+            DateTime yeni2 = time2.DateTime.Value;
+
+            if ((ass < yeni1 && yeni1 < ass1) || (ass < yeni2 && yeni2 < ass1))
+            {
+                saaatt = false;
+
+
+            }
+            else
+            {
+                saaatt = true;
+
+
+
+            }
+            return saaatt;
+        }
+        MySqlConnection con;
+
+        private void Open_File_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            var arac = (aracclass)aracpopodata.SelectedItem as aracclass;
+            var musteri = (mustericlass)musteripopodata.SelectedItem as mustericlass;
+            Mieteclass miete = new Mieteclass();
+            miete.Vorname =musteri.Ad;
+            miete.Nachname =musteri.Soyad;
+            miete.Tcnummer =musteri.Tcnummer;
+            miete.Telefonnumer =musteri.Telefonu;
+            miete.Email =musteri.Mail;
+            miete.Führerscheinno =musteri.Ehliyetno.ToString();
+            miete.Model=arac.Model;
+            miete.Marke =arac.Marke;
+            miete.Nummerschild = arac.Nummernschild;
+            miete.Kraftstoff =arac.Kraftstoff;
+            miete.Kosten =kostentxt.Text;
+            miete.Rechnungsno=rechnungtxt.Text;
+            miete.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            miete.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            saat(miete.Ilkdate, miete.Sondate);
+            try
+            {
+                
+                MySqlConnection con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
+
+                MySqlDataAdapter baglayici = new MySqlDataAdapter();
+                MySqlCommand komut = new MySqlCommand("Select * from testdb.miete where Nummerschild = '" + miete.Nummerschild + "'", con);
+
+                con.Open();
+                MySqlDataReader reader = komut.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    if (saaatt)
+                    {
+                        kp.Eklemiete(musteri, arac, miete);
+                        mietedata.ItemsSource = kp.Listelemiete();
+
+                        kp.Listelemiete();
+                    }
+                    else
+                    {
+                        MessageBox.Show("zamanda sorun var");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Username And Password Not Match!", "VINSMOKE MJ", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+           
+            
+
+
+        }
+
+        private void time1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

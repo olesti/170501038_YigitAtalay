@@ -19,6 +19,13 @@ using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.Windows.Shared;
 using System.Diagnostics;
 using MySqlConnector;
+using System.Data;
+using System.Windows.Documents;
+using System.Windows.Documents.Serialization;
+using Syncfusion.SfDataGrid;
+//using System.Windows.Xps;
+//using System.Windows.Xps.Packaging;
+
 
 namespace GetLos_App
 {
@@ -119,6 +126,7 @@ namespace GetLos_App
                 yeniarac.Karosserientyp = "Sedan";
                 yeniarac.Schaden = schade.SelectedIndex.ToString();
                 yeniarac.Farbe = "Schwarz";
+                yeniarac.Kosten = kostentxt.Text;
                 if (xy)
                 {
                     kp.Ekle(yeniarac);
@@ -207,6 +215,7 @@ namespace GetLos_App
                 motorgüctxt.Text = selectedEmployee.Farbe;
                 schade.SelectedIndex = j;
                 yakıtlist.SelectedIndex = z;
+                kostentxt.Text = selectedEmployee.Kosten.Substring(0, selectedEmployee.Kosten.Length - 1); ;
             }
            
         }
@@ -239,6 +248,7 @@ namespace GetLos_App
             yenikisi.Karosserientyp = kasalist.Text;
             yenikisi.Schaden = schade.Text;
             yenikisi.Farbe = motorgüctxt.Text;
+            yenikisi.Kosten = kostentxt.Text;
             kp.Guncelle(esarac, yenikisi);
             aracdata.ItemsSource = kp.Listele1();
 
@@ -246,9 +256,66 @@ namespace GetLos_App
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
+            /*
+            PrintDialog printDlg = new PrintDialog();
+
+            printDlg.PrintVisual(aracdata, "AutoList");
+            */
+            musteripopupxaml musteripopupxaml  = new musteripopupxaml();
+            musteripopupxaml.Show();
 
 
-            
         }
+        /*
+        public void Print_WPF_Preview(FrameworkElement wpf_Element)
+
+        {
+
+            //------------< WPF_Print_current_Window >------------
+
+            //--< create xps document >--
+
+            XpsDocument doc = new XpsDocument("print_previw.xps", FileAccess.ReadWrite);
+
+            XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
+
+            SerializerWriterCollator preview_Document = writer.CreateVisualsCollator();
+
+            preview_Document.BeginBatchWrite();
+
+            preview_Document.Write(wpf_Element);  //*this or wpf xaml control
+
+            preview_Document.EndBatchWrite();
+
+            //--</ create xps document >--
+
+
+
+            //var doc2 = new XpsDocument("Druckausgabe.xps", FileAccess.Read);
+
+
+
+            FixedDocumentSequence preview = doc.GetFixedDocumentSequence();
+
+
+
+            var window = new Window();
+
+            window.Content = new DocumentViewer { Document = preview };
+
+            window.ShowDialog();
+
+
+
+            doc.Close();
+
+            //------------</ WPF_Print_current_Window >------------
+
+
+
+
+
+        }
+        */
     }
 }

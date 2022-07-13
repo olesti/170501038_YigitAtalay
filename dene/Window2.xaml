@@ -6,18 +6,20 @@
         xmlns:local="clr-namespace:GetLos_App"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="GetLos_App.Window2"
         mc:Ignorable="d"
-        Title="Loginscreen" Height="320" Width="400" KeyDown="Window_KeyDown">
+        Title="Loginscreen" Height="450" Width="500" KeyDown="Window_KeyDown">
     <Grid Background="#FF303943">
-        <Grid HorizontalAlignment="Center" Height="26" Margin="0,114,0,0" VerticalAlignment="Top" Width="280">
-            <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="-1,0,0,0"/>
-            <TextBox x:Name="usernametxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" Margin="160,0,0,0"/>
+        <Grid HorizontalAlignment="Center" Height="94" Margin="0,137,0,0" VerticalAlignment="Top" Width="338">
+            <Grid HorizontalAlignment="Center" Height="39" VerticalAlignment="Top" Width="310">
+                <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="-1,0,0,0" FontSize="14"/>
+                <TextBox x:Name="usernametxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="140" Margin="169,0,0,0" Height="24"/>
+            </Grid>
+            <Grid HorizontalAlignment="Center" Height="45" Margin="0,40,0,0" VerticalAlignment="Top" Width="316">
+                <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="1,0,0,0" FontSize="14"/>
+                <TextBox x:Name="passwordtxt" TextWrapping="Wrap" Text="" VerticalAlignment="Center" HorizontalAlignment="Left" Width="140" Height="24" Margin="172,0,0,0"/>
+            </Grid>
         </Grid>
-        <Grid HorizontalAlignment="Center" Height="26" Margin="0,157,0,0" VerticalAlignment="Top" Width="281">
-            <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="passwordtxt" TextWrapping="Wrap" Text="" VerticalAlignment="Center" HorizontalAlignment="Right" Width="120"/>
-        </Grid>
-        <Label Content="Benutzer-Anmeldung" HorizontalAlignment="Left" Margin="145,29,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFE0B007"/>
-        <Button x:Name="loginbutton" Content="Anmeldung" HorizontalAlignment="Left" Margin="162,222,0,0" VerticalAlignment="Top" Height="18" Width="64" BorderBrush="{x:Null}" Background="#FFC87C20" FontSize="10" Click="loginbutton_Click"/>
-        <Button x:Name="loginbutton_Copy" Content="Passwort vergessen?" HorizontalAlignment="Left" Margin="264,191,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="8" Click="loginbutton_Copy_Click"/>
+        <Label Content="Benutzer-Anmeldung" HorizontalAlignment="Left" Margin="151,28,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFE0B007" FontSize="18"/>
+        <Button x:Name="loginbutton" Content="Anmeldung" HorizontalAlignment="Left" Margin="208,301,0,0" VerticalAlignment="Top" Height="25" Width="72" BorderBrush="{x:Null}" Background="#FFC87C20" Click="loginbutton_Click" FontWeight="Bold"/>
+        <Button x:Name="loginbutton_Copy" Content="Passwort vergessen?" HorizontalAlignment="Left" Margin="301,259,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Click="loginbutton_Copy_Click"/>
     </Grid>
 </Window>

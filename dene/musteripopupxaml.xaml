@@ -1,13 +1,13 @@
-﻿<Window x:Class="GetLos_App.musteripopupxaml"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GetLos_App"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" x:Class="GetLos_App.musteripopupxaml"
         mc:Ignorable="d"
-        Title="musteripopupxaml" Height="500" Width="800">
+        Title="Autopopup" Height="500" Width="800">
     <Grid Background="#FF303943">
-        <DataGrid x:Name="musteripopodata" IsReadOnly="True" MouseDoubleClick="musteripopodata_MouseDoubleClick"/>
-
+        <Syncfusion:SfDataGrid x:Name="aracdata" ColumnSizer="Auto" Margin="0,27,0,0" Loaded="aracdata_Loaded"/>
     </Grid>
 </Window>

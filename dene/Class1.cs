@@ -41,6 +41,7 @@ namespace GetLos_App
                     k1.Km = reader[5].ToString();
                     k1.Schaden = reader[9].ToString(); 
                     k1.Farbe =reader[7].ToString();
+                    k1.Kosten = reader[11].ToString()+ "€" ;
                     araclist.Add(k1);
                 }
                 return araclist;
@@ -113,7 +114,7 @@ namespace GetLos_App
                     yarac.Schaden = "1";
 
                 }
-                MySqlCommand komut = new MySqlCommand("Update testdb.arac SET marka='" + yarac.Marke.ToString() + "', yas='" + yarac.Alter.ToString() + "', kapı='" + yarac.Farbe.ToString()
+                MySqlCommand komut = new MySqlCommand("Update testdb.arac SET marka='" + yarac.Marke.ToString() + "', yas='" + yarac.Alter.ToString() + "', kapı='" + yarac.Farbe.ToString() + "', kosten='" + yarac.Kosten.ToString()
                     + "', yakıt='" + yarac.Kraftstoff.ToString() + "', vites='" + yarac.Getriebetype.ToString() + "', km='" + yarac.Km.ToString() + "', kasa='" + yarac.Karosserientyp.ToString() + "', kazali='" + yarac.Schaden.ToString()
                     + "' Where plaka= '" + earac.Nummernschild.ToString() + "'", con);
                 
@@ -172,7 +173,7 @@ namespace GetLos_App
         {
             try
             {
-                MySqlCommand komut = new MySqlCommand ("Insert Into arac (arac_no1,plaka,marka,yas,yakıt,vites,km,kasa,kapı,model,kazali) Values ('"+aracekle.No+ "','" + aracekle.Nummernschild + "','" + aracekle.Marke + "','" + aracekle.Alter + "','" + aracekle.Kraftstoff + "','" + aracekle.Getriebetype + "','" + aracekle.Km + "','" + aracekle.Karosserientyp + "','" + aracekle.Farbe + "','" + aracekle.Model + "','" + aracekle.Schaden+ "')", con);
+                MySqlCommand komut = new MySqlCommand ("Insert Into arac (arac_no1,plaka,marka,yas,yakıt,vites,km,kasa,kapı,model,kosten,kazali) Values ('"+aracekle.No+ "','" + aracekle.Nummernschild + "','" + aracekle.Marke + "','" + aracekle.Alter + "','" + aracekle.Kraftstoff + "','" + aracekle.Getriebetype + "','" + aracekle.Km + "','" + aracekle.Karosserientyp + "','" + aracekle.Farbe + "','" + aracekle.Model + "','" + aracekle.Kosten + "','" + aracekle.Schaden+ "')", con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }
@@ -233,8 +234,8 @@ namespace GetLos_App
                     k.No = Convert.ToInt32(reader[0].ToString());
                     k.Ad = reader[1].ToString();
                     k.Soyad = reader[2].ToString();
-                    k.Telefonu = reader[4].ToString();
                     k.Tcnummer = reader[3].ToString(); 
+                    k.Telefonu = reader[4].ToString();
                     k.Mail=reader[5].ToString();
                     k.Adresse = reader[6].ToString();
                     k.Ehliyetno=Convert.ToInt32(reader[8].ToString());
@@ -260,5 +261,61 @@ namespace GetLos_App
             }
             
         }
+        public List<Mieteclass> Listelemiete()
+        {
+            //con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
+
+            try
+            {
+                List<Mieteclass> mietelist = new List<Mieteclass>();
+
+                MySqlDataAdapter baglayici = new MySqlDataAdapter();
+                // cmd.CommandText = "Select * from musteri";
+                //cmd.CommandType= CommandType.Text;
+                MySqlCommand komut = new MySqlCommand("Select * from miete", con);
+                con.Open();
+                MySqlDataReader reader = komut.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    Mieteclass k = new Mieteclass();
+                    k.Mieteno = Convert.ToInt16(reader[0].ToString());
+                    k.Vorname = reader[1].ToString();
+                    k.Nachname = reader[2].ToString();
+                    k.Tcnummer = reader[3].ToString();
+                    k.Telefonnumer = reader[4].ToString();
+                    k.Email = reader[5].ToString();
+                    k.Führerscheinno = reader[6].ToString();
+                    k.Model = reader[7].ToString();
+                    k.Marke = reader[8].ToString();
+                    k.Nummerschild = reader[9].ToString();
+                    k.Kraftstoff = reader[10].ToString();
+                    k.Kosten = reader[11].ToString();
+                    k.Rechnungsno = reader[12].ToString();
+                    k.Ilkdate = Convert.ToDateTime(reader[13].ToString());
+                    k.Sondate = Convert.ToDateTime(reader[14].ToString());
+                    mietelist.Add(k);
+
+
+                }
+                return mietelist;
+
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+
+        }
+        
     }
 }

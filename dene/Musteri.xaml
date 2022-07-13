@@ -43,7 +43,7 @@
             <Button Content="Hinzufügen" HorizontalAlignment="Left" VerticalAlignment="Center" Height="64" Width="71" Click="Button_Click"/>
             <Button Content="Veränderung" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Center" Height="64" Width="71" Click="Button_Click_2"/>
             <Button Content="Löschen" HorizontalAlignment="Left" Margin="299,0,0,0" VerticalAlignment="Center" Height="64" Width="71" Click="Button_Click_1"/>
-            <Button Content="Ausdrucken" HorizontalAlignment="Left" Margin="449,0,0,0" VerticalAlignment="Center" Height="64" Width="71"/>
+            <Button Content="Ausdrucken" HorizontalAlignment="Left" Margin="449,0,0,0" VerticalAlignment="Center" Height="64" Width="71" Click="Button_Click_3"/>
 
         </Grid>
         <DataGrid x:Name="musteridata" SelectionMode="Single" Margin="2,302,0,0" SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}"  SelectionChanged="musteridata_SelectionChanged" IsReadOnly="True">

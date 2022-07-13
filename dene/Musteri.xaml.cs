@@ -51,6 +51,8 @@ namespace GetLos_App
             OleDbCommand cmd2 = new OleDbCommand("Select * From musteri");
             */
             musteridata.ItemsSource = kp.Listele();
+            
+
         }
         public MySqlConnection mysqlbaglan = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
         /*
@@ -160,7 +162,12 @@ namespace GetLos_App
 
                 System.Windows.MessageBox.Show(ex.ToString());
             }
-           
+            PrintDialog printDlg = new PrintDialog();
+            
+
+
+
+            
 
         }
         private void musteridata_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -247,6 +254,13 @@ namespace GetLos_App
             }
 
 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDlg = new PrintDialog();
+
+            printDlg.PrintVisual(musteridata, "KundenList");
         }
     }
 }

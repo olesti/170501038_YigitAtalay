@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.UI.Xaml.Grid;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,18 +25,23 @@ namespace GetLos_App
         public musteripopupxaml()
         {
             InitializeComponent();
-            kp.Listele();
-            musteripopodata.ItemsSource = kp.Listele();
+            kp.Listele1();
+            aracdata.ItemsSource = kp.Listele1();
+            
         }
 
         private void musteripopodata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
-            Kira swww = new Kira();
-            swww.Close();
-            Kira swww1 = new Kira();
 
-            swww1.Show();
+        }
+
+        private void aracdata_Loaded(object sender, RoutedEventArgs e)
+        {
+            aracdata.PrintSettings = new PrintSettings();
+            aracdata.PrintSettings.PrintPageOrientation = PrintOrientation.Landscape;
+
+            aracdata.ShowPrintPreview();
+
         }
     }
 }
