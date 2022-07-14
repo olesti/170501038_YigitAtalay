@@ -104,7 +104,7 @@ namespace GetLos_App
 
             return xy;
         }
-        bool yz = true;
+        bool yz ;
         private bool txttt()
         {
             if (adtxt.Text == "" || soyadtxt.Text == ""
@@ -214,17 +214,21 @@ namespace GetLos_App
         {
             mustericlass aracclass2 = new mustericlass();
             aracclass2 = (mustericlass)musteridata.SelectedItem as mustericlass;
-            kp.Sil1(aracclass2);
-            adtxt.Text = null;
-            soyadtxt.Text = null;
-            adrestxt.Text = null;
-            ehliyetnotxt.Text = null;
-            ehliyetturtxt.Text = null;
-            emailtxt.Text = null;
-            tcnummertxt.Text = null;
-            telefonnummertxt.Text = null;
-            kp.Listele();
-            musteridata.ItemsSource = kp.Listele();
+            if (musteridata.SelectedIndex != -1)
+            {
+                kp.Sil1(aracclass2);
+                adtxt.Text = null;
+                soyadtxt.Text = null;
+                adrestxt.Text = null;
+                ehliyetnotxt.Text = null;
+                ehliyetturtxt.Text = null;
+                emailtxt.Text = null;
+                tcnummertxt.Text = null;
+                telefonnummertxt.Text = null;
+                kp.Listele();
+                musteridata.ItemsSource = kp.Listele();
+            }
+            
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -234,25 +238,38 @@ namespace GetLos_App
             mustericlass esarac = new mustericlass();
             esarac = (mustericlass)musteridata.SelectedItem as mustericlass;
             mustericlass yenikisi = new mustericlass();
-            if (yz)
+            if (musteridata.SelectedIndex !=-1)
             {
-                yenikisi.No = esarac.No;
-                yenikisi.Ad = adtxt.Text;
-                yenikisi.Soyad = soyadtxt.Text;
-                yenikisi.Adresse = adrestxt.Text;
-                yenikisi.Telefonu = telefonnummertxt.Text;
-                yenikisi.Ehliyett = ehliyetturtxt.Text;
-                yenikisi.Ehliyetno = Convert.ToInt32(ehliyetnotxt.Text);
-                yenikisi.Mail = emailtxt.Text;
-                yenikisi.Tcnummer = tcnummertxt.Text;
-                kp.Guncelle1(yenikisi);
-                musteridata.ItemsSource = kp.Listele();
-                
+                if (yz)
+                {
+                    if (tcnummertxt.Text.Length == 11 && telefonnummertxt.Text.Length == 11)
+                    {
+                        yenikisi.No = esarac.No;
+                        yenikisi.Ad = adtxt.Text;
+                        yenikisi.Soyad = soyadtxt.Text;
+                        yenikisi.Adresse = adrestxt.Text;
+                        yenikisi.Telefonu = telefonnummertxt.Text;
+                        yenikisi.Ehliyett = ehliyetturtxt.Text;
+                        yenikisi.Ehliyetno = Convert.ToInt32(ehliyetnotxt.Text);
+                        yenikisi.Mail = emailtxt.Text;
+                        yenikisi.Tcnummer = tcnummertxt.Text;
+                        kp.Guncelle1(yenikisi);
+                        musteridata.ItemsSource = kp.Listele();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sie müssen Ihre Tcnummer und Telefonnummer korrekt eingeben.");
+
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Sie müssen jedes Feld ausfüllen");
+                }
             }
-            else
-            {
-                MessageBox.Show("Sie müssen jedes Feld ausfüllen");
-            }
+            
 
 
         }

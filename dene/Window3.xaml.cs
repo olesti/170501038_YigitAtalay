@@ -37,15 +37,15 @@ namespace GetLos_App
 
         private void Open_File_Copy_Click(object sender, RoutedEventArgs e)
         {
-            aracpopup miete = new aracpopup();
-            miete.Show();
-
+            musteripopupxaml musteripopupxaml = new musteripopupxaml();
+            musteripopupxaml.Show();
         }
 
         private void Open_File_Copy1_Click(object sender, RoutedEventArgs e)
         {
-            musteripopupxaml musteripopupxaml = new musteripopupxaml();
-            musteripopupxaml.Show();
+            
+            aracpopup miete = new aracpopup();
+            miete.Show();
 
         }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,7 +32,7 @@ namespace GetLos_App
             time2.DateTime = DateTime.Now;
             kp.Listelemiete();
             mietedata.ItemsSource = kp.Listelemiete();
-
+            
         }
 
         Class1 kp=new Class1(); 
@@ -43,7 +44,26 @@ namespace GetLos_App
             
 
         }
+        /*
+        public static void Send(Key key)
+        {
+            if (Keyboard.PrimaryDevice != null)
+            {
+                if (Keyboard.PrimaryDevice.ActiveSource != null)
+                {
+                    var e = new KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, key)
+                    {
+                        RoutedEvent = Keyboard.KeyDownEvent
+                    };
+                    InputManager.Current.ProcessInput(e);
 
+                    // Note: Based on your requirements you may also need to fire events for:
+                    // RoutedEvent = Keyboard.PreviewKeyDownEvent
+                    // RoutedEvent = Keyboard.KeyUpEvent
+                    // RoutedEvent = Keyboard.PreviewKeyUpEvent
+                }
+            }
+        }*/
         private void aracbtn_Click(object sender, RoutedEventArgs e)
         {
             //datagrid.ItemsSource = kp.Listele1();
@@ -98,11 +118,12 @@ namespace GetLos_App
 
             TimeSpan ts = sinavTarihi - bugunTarihi;
             gun = ts.Days;
-            if (kostentxt.Text != "")
+            if (kostentxt.Text != "" )
             {
-                if (gun != null && gun != 0)
+                if ( gun > 0)
                 {
-                    preistxt.Text = (gun * Convert.ToInt32(kostentxt.Text)).ToString();
+                    int? sa = gun * Convert.ToInt32(kostentxt.Text);
+                    preistxt.Text = sa.ToString();
                     //time1txt.Text = time1.DateTime.Value.ToString();
                     //time2txt.Text = timenormal.ToString();
                     
@@ -149,75 +170,95 @@ namespace GetLos_App
             return d2 > d1 ? d1 : d2;
         }*/
         MySqlConnection con;
+        string global = null;
+        string email = null;
+        string id = null;
+        MailMessage eposta = new MailMessage();
 
         private void Open_File_Copy_Click(object sender, RoutedEventArgs e)
         {
             string ödeme;
             var arac = (aracclass)aracpopodata.SelectedItem as aracclass;
             var musteri = (mustericlass)musteripopodata.SelectedItem as mustericlass;
-            Mieteclass miete = new Mieteclass();
-            miete.Vorname =musteri.Ad;
-            miete.Nachname =musteri.Soyad;
-            miete.Tcnummer =musteri.Tcnummer;
-            miete.Telefonnumer =musteri.Telefonu;
-            miete.Email =musteri.Mail;
-            miete.Führerscheinno =musteri.Ehliyetno.ToString();
-            miete.Model=arac.Model;
-            miete.Marke =arac.Marke;
-            miete.Nummerschild = arac.Nummernschild;
-            miete.Kraftstoff =arac.Kraftstoff;
-            miete.Kosten =preistxt.Text;
-            if (ödemetürücombo.SelectedIndex == 0)
+            if (aracpopodata.SelectedIndex != -1 && musteripopodata.SelectedIndex != -1 && preistxt.Text!="" && ödemetürücombo.SelectedIndex != -1)
             {
-                ödeme = "Bargeld";
-            }
-            else
-            {
-                ödeme = "Kreditkarte";
-            }
-            miete.Rechnungsno=ödeme;
-            miete.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-            miete.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
 
-            try
-            {
-                
-                MySqlConnection con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
-
-                MySqlDataAdapter baglayici = new MySqlDataAdapter();
-                MySqlCommand komut = new MySqlCommand("Select * from testdb.miete where Nummerschild = '" + miete.Nummerschild + "'", con);
-
-                con.Open();
-                MySqlDataReader reader = komut.ExecuteReader();
-
-                if (reader.Read())
+                Mieteclass miete = new Mieteclass();
+                miete.Vorname = musteri.Ad;
+                miete.Nachname = musteri.Soyad;
+                miete.Tcnummer = musteri.Tcnummer;
+                miete.Telefonnumer = musteri.Telefonu;
+                miete.Email = musteri.Mail;
+                miete.Führerscheinno = musteri.Ehliyetno.ToString();
+                miete.Model = arac.Model;
+                miete.Marke = arac.Marke;
+                miete.Nummerschild = arac.Nummernschild;
+                miete.Kraftstoff = arac.Kraftstoff;
+                miete.Kosten = preistxt.Text;
+                if (ödemetürücombo.SelectedIndex == 0)
                 {
-                    
-                    if (saat(miete.Ilkdate, miete.Sondate, reader))
+                    ödeme = "Bargeld";
+                }
+                else
+                {
+                    ödeme = "Kreditkarte";
+                }
+                miete.Rechnungsno = ödeme;
+                miete.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                miete.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                try
+                {
+
+                    MySqlConnection con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
+
+                    MySqlDataAdapter baglayici = new MySqlDataAdapter();
+                    MySqlCommand komut = new MySqlCommand("Select * from testdb.miete where Nummerschild = '" + miete.Nummerschild + "'", con);
+
+                    con.Open();
+                    MySqlDataReader reader = komut.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+
+                        if (saat(miete.Ilkdate, miete.Sondate, reader))
+                        {
+                            kp.Eklemiete(musteri, arac, miete);
+                            mietedata.ItemsSource = kp.Listelemiete();
+
+                            kp.Listelemiete();
+                            eposta.From = new MailAddress("ataly08@hotmail.com");
+                            eposta.To.Add(miete.Email);
+                            eposta.Subject = "Informationen zum Getlos-Mietservice";
+                            global = "Hallo Herr/Frau "+miete.Vorname+" "+ miete.Nachname+",\n"+ "Zwischen den Daten "+miete.Ilkdate.ToString("yyyy-MM-dd") +" und "+ miete.Sondate.ToString("yyyy-MM-dd") + " wird Ihnen Ihr "+miete.Model+"-Modellfahrzeug der Marke " +miete.Marke+" mit "+miete.Nummerschild+ "-Nummerschild  zur Nutzung angeboten.";
+                            eposta.Body = global;
+                            SmtpClient sas = new SmtpClient();
+                            sas.Credentials = new System.Net.NetworkCredential("e170501038@stud.tau.edu.tr", "atalay528");
+                            sas.Host = "smtp.gmail.com";
+                            sas.EnableSsl = true;
+                            sas.Port = 587;
+
+                            sas.Send(eposta);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dieses Fahrzeug befindet sich im gewünschten Zeitintervall in einer anderen Vermietung. Bitte wählen Sie das Zeitfenster aus, für das Auto verfügbar ist.");
+                        }
+                    }
+                    else
                     {
                         kp.Eklemiete(musteri, arac, miete);
                         mietedata.ItemsSource = kp.Listelemiete();
 
                         kp.Listelemiete();
                     }
-                    else
+                }
+                finally
+                {
+                    if (con != null)
                     {
-                        MessageBox.Show("zamanda sorun var");
+                        con.Close();
                     }
-                }
-                else
-                {
-                    kp.Eklemiete(musteri, arac, miete);
-                    mietedata.ItemsSource = kp.Listelemiete();
-
-                    kp.Listelemiete();
-                }
-            }
-            finally
-            {
-                if (con != null)
-                {
-                    con.Close();
                 }
             }
            
@@ -235,8 +276,12 @@ namespace GetLos_App
         {
             Mieteclass aracclass2 = new Mieteclass();
             aracclass2 = (Mieteclass)mietedata.SelectedItem as Mieteclass;
-            kp.Silmiete(aracclass2); ;
-            mietedata.ItemsSource = kp.Listelemiete();
+            if (mietedata.SelectedIndex!=-1)
+            {
+                kp.Silmiete(aracclass2); ;
+                mietedata.ItemsSource = kp.Listelemiete();
+            }
+            
             
         }
 
@@ -249,8 +294,23 @@ namespace GetLos_App
 
         private void mietedata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             Mieteclass aracclass2 = new Mieteclass();
             aracclass2 = (Mieteclass)mietedata.SelectedItem as Mieteclass;
+            DateTime bugunTarihi = aracclass2.Ilkdate;
+            DateTime sinavTarihi = aracclass2.Sondate;
+            int gun2;
+            TimeSpan ts = sinavTarihi - bugunTarihi;
+            gun2 = ts.Days;
+            if (aracclass2.Kosten != "")
+            {
+                int sa = Convert.ToInt32(aracclass2.Kosten) / gun2;
+                kostentxt.Text = sa.ToString();
+            }
+            
+                    
+
+              
             rechnungtxt.Text=aracclass2.Mieteno.ToString();
             time1.DateTime = aracclass2.Ilkdate;
             time2.DateTime = aracclass2.Sondate;
@@ -264,28 +324,63 @@ namespace GetLos_App
                 ödemetürücombo.SelectedIndex =0;
 
             }
+            adtxt.Text=aracclass2.Vorname;
+            soyadtxt.Text=aracclass2.Nachname;
+            tctxt.Text=aracclass2.Tcnummer;
+            teltxt.Text=aracclass2.Telefonnumer;
+            mailtxt.Text=aracclass2.Email;
+            ehlinotxt.Text=aracclass2.Führerscheinno;
+            modeltxt.Text=aracclass2.Model;
+            markatxt.Text=aracclass2.Marke;
+            plakatxt.Text=aracclass2.Nummerschild;
+            yakıt_txt.Text=aracclass2.Kraftstoff;
+
         }
 
         private void Open_File_Copy2_Click(object sender, RoutedEventArgs e)
         {
             Mieteclass aracclass2 = new Mieteclass();
             aracclass2 = (Mieteclass)mietedata.SelectedItem as Mieteclass;
-            aracclass2.Marke = markatxt.Text;
-            aracclass2.Model = modeltxt.Text;
-            string ödeme;
-            if (ödemetürücombo.SelectedIndex == 0)
+            if (rechnungtxt.Text!="")
             {
-                ödeme = "Bargeld";
-            }
-            else
-            {
-                ödeme = "Kreditkarte";
-            }
-            aracclass2.Rechnungsno = ödeme;
-            aracclass2.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-            aracclass2.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                aracclass2.Kosten = preistxt.Text;
 
-            kp.Guncellemiete(aracclass2);
+                string ödeme;
+                if (ödemetürücombo.SelectedIndex == 0)
+                {
+                    ödeme = "Bargeld";
+                }
+                else
+                {
+                    ödeme = "Kreditkarte";
+                }
+                aracclass2.Rechnungsno = ödeme;
+                aracclass2.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd "));
+                aracclass2.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd "));
+
+                kp.Guncellemiete(aracclass2);
+                mietedata.ItemsSource = kp.Listelemiete();
+
+                kp.Listelemiete();
+                eposta.From = new MailAddress("ataly08@hotmail.com");
+                eposta.To.Add(aracclass2.Email);
+                eposta.Subject = "Update zum Mietservice von Getlos";
+                global = "Hallo Herr/Frau " + aracclass2.Vorname + " " + aracclass2.Nachname + ",\n" + "Zwischen den Daten " + aracclass2.Ilkdate.ToString("yyyy-MM-dd") + " und " + aracclass2.Sondate.ToString("yyyy-MM-dd") + " wird Ihnen Ihr " + aracclass2.Model + "-Modellfahrzeug der Marke " + aracclass2.Marke + " mit " + aracclass2.Nummerschild + "-Nummerschild  zur Nutzung angeboten.";
+                eposta.Body = global;
+                SmtpClient sas = new SmtpClient();
+                sas.Credentials = new System.Net.NetworkCredential("e170501038@stud.tau.edu.tr", "atalay528");
+                sas.Host = "smtp.gmail.com";
+                sas.EnableSsl = true;
+                sas.Port = 587;
+
+                sas.Send(eposta);
+            }
+            
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

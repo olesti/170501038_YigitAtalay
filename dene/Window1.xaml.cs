@@ -94,7 +94,7 @@ namespace GetLos_App
                 sas.Port = 587;
                 
                 sas.Send(eposta);
-                MessageBox.Show(reader[3].ToString());
+                MessageBox.Show("Aktivierungscode an" + reader[3].ToString()+ "​​E-Mail-Adresse gesendet.");
 
 
 
@@ -156,6 +156,7 @@ namespace GetLos_App
                         MySqlCommand komut = new MySqlCommand("update userslast set password= '" + passwordtxt.Text + "' where idusers=" + id, con);
                         con.Open();
                         komut.ExecuteNonQuery();
+                        MessageBox.Show("Das Passwort wurde erfolgreich geändert.");
                     }
                     finally
                     {

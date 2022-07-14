@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GetLos_App"
         mc:Ignorable="d"
-        Title="Autos" Height="675" Width="1000">
+        Title="AutoSeite" Height="675" Width="1000">
     <Grid Background="#FF303943">
 
         <Grid HorizontalAlignment="Left" Margin="28,32,0,0" VerticalAlignment="Top" Width="318">
@@ -26,11 +26,7 @@
                 <Label Content="Nummernschild" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                 <TextBox x:Name="plakatxt" PreviewTextInput="PreviewTextInput1" HorizontalAlignment="Left" Margin="108,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="#FFFF7F7F"/>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="102" VerticalAlignment="Top">
-                <Image HorizontalAlignment="Left" Height="82" VerticalAlignment="Top" Width="87" Source="/car-rent.png"/>
-                <Button Content="Resim Ekle" HorizontalAlignment="Left" Margin="1,82,0,0" Click="Button_Click"/>
-
-            </Grid>
+            <Grid HorizontalAlignment="Left" Height="102" VerticalAlignment="Top"/>
 
         </Grid>
 

@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:GetLos_App"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" x:Class="GetLos_App.Kira"
         mc:Ignorable="d"
-        Title="Kira" Height="800" Width="1389">
-    <Grid Background="#FF303943">
+        Title="MieteSeite" Height="800" Width="1499.6">
+    <Grid Background="#FF303943" Loaded="Grid_Loaded">
         <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="226" Margin="36,35,0,0" VerticalAlignment="Top" Width="331" RenderTransformOrigin="0.667,0.594"/>
         <Grid Margin="32,35,983,403">
             <Label x:Name="progresslbl" Content="Vorname:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" Margin="3,0,0,0">
@@ -72,10 +72,10 @@
             </Label>
 
         </Grid>
-        <Button x:Name="Open_File" Content="Löschen" Margin="0,0,540,617"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" Click="Open_File_Click"/>
-        <Button x:Name="Open_File_Copy" Content="Hinzufügen" Margin="0,0,606,618"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="74" Foreground="DarkOrange" Click="Open_File_Copy_Click" />
-        <Button x:Name="Open_File_Copy1" Content="4" Margin="962,117,0,0"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="56" Foreground="DarkOrange" Click="Open_File_Copy1_Click"/>
-        <Button x:Name="Open_File_Copy2" Content="Aktualisirung" Margin="0,0,446,617"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="84" Foreground="DarkOrange" Click="Open_File_Copy2_Click"/>
+        <Button x:Name="Open_File" Content="Löschen" Margin="0,0,574,617"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56" Foreground="DarkOrange" Click="Open_File_Click"/>
+        <Button x:Name="Open_File_Copy" Content="Hinzufügen" Margin="0,0,637,617"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="76" Foreground="DarkOrange" Click="Open_File_Copy_Click" />
+        <Button x:Name="Open_File_Copy1" Content="Ausdrucken" Margin="0,0,383,617"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" Foreground="DarkOrange" Click="Open_File_Copy1_Click" HorizontalAlignment="Right" Width="88"/>
+        <Button x:Name="Open_File_Copy2" Content="Veranderung" Margin="0,0,479,617"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="86" Foreground="DarkOrange" Click="Open_File_Copy2_Click"/>
         <Label Content="Personal Information" HorizontalAlignment="Left" Margin="35,9,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold" FontSize="14" Foreground="DarkOrange"/>
         <Border BorderBrush="White" BorderThickness="1" Height="254" Width="333" VerticalAlignment="Top" Margin="34,297,0,0" HorizontalAlignment="Left"/>
         <Label x:Name="progresslbl2" Content="Model:" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" VerticalAlignment="Top" Margin="37,296,0,0" HorizontalAlignment="Left">

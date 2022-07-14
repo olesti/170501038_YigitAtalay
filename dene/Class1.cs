@@ -105,15 +105,7 @@ namespace GetLos_App
            
             try
             {
-                if (yarac.Schaden.ToString()== "unbeschädigt")
-                {
-                    yarac.Schaden = "0";
-                }
-                else
-                {
-                    yarac.Schaden = "1";
-
-                }
+                
                 MySqlCommand komut = new MySqlCommand("Update testdb.arac SET marka='" + yarac.Marke.ToString() + "', yas='" + yarac.Alter.ToString() + "', kapı='" + yarac.Farbe.ToString() + "', kosten='" + yarac.Kosten.ToString()
                     + "', yakıt='" + yarac.Kraftstoff.ToString() + "', vites='" + yarac.Getriebetype.ToString() + "', km='" + yarac.Km.ToString() + "', kasa='" + yarac.Karosserientyp.ToString() + "', kazali='" + yarac.Schaden.ToString()
                     + "' Where plaka= '" + earac.Nummernschild.ToString() + "'", con);
@@ -149,8 +141,8 @@ namespace GetLos_App
 
             try
             {
-                MySqlCommand komut = new MySqlCommand("Update testdb.musteri SET mus_adi='" + s.Ad.ToString() + "', mus_soyadi='" + s.Soyad.ToString() + "', mus_tc='" + s.Tcnummer.ToString()
-                    + "', mus_mail='" + s.Mail.ToString()  + "', mus_adres='" + s.Adresse.ToString() 
+                MySqlCommand komut = new MySqlCommand("Update testdb.musteri SET mus_adi='" + s.Ad.ToString() + "', mus_soyadi='" + s.Soyad.ToString() + "', mus_tc='" + s.Tcnummer.ToString() + "', mus_tel='" + s.Telefonu.ToString() + "', mus_ehlino='" + s.Ehliyetno.ToString()
+                    + "', mus_mail='" + s.Mail.ToString()  + "', mus_adres='" + s.Adresse.ToString() + "', mus_ehlitur='" + s.Ehliyett.ToString()
                     + "' Where mus_no= '" + s.No.ToString() + "'", con);
                 con.Open();
                 komut.ExecuteNonQuery();
@@ -173,7 +165,7 @@ namespace GetLos_App
         {
             try
             {
-                MySqlCommand komut = new MySqlCommand ("Insert Into arac (arac_no1,plaka,marka,yas,yakıt,vites,km,kasa,kapı,model,kosten,kazali) Values ('"+aracekle.No+ "','" + aracekle.Nummernschild + "','" + aracekle.Marke + "','" + aracekle.Alter + "','" + aracekle.Kraftstoff + "','" + aracekle.Getriebetype + "','" + aracekle.Km + "','" + aracekle.Karosserientyp + "','" + aracekle.Farbe + "','" + aracekle.Model + "','" + aracekle.Kosten + "','" + aracekle.Schaden+ "')", con);
+                MySqlCommand komut = new MySqlCommand ("Insert Into arac (arac_no1,plaka,marka,yas,yakıt,vites,km,kasa,kapı,model,kosten,kazali) Values ('"+"0"+ "','" + aracekle.Nummernschild + "','" + aracekle.Marke + "','" + aracekle.Alter + "','" + aracekle.Kraftstoff + "','" + aracekle.Getriebetype + "','" + aracekle.Km + "','" + aracekle.Karosserientyp + "','" + aracekle.Farbe + "','" + aracekle.Model + "','" + aracekle.Kosten + "','" + aracekle.Schaden+ "')", con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }

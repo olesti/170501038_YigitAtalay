@@ -71,7 +71,7 @@ namespace GetLos_App
 
         private bool sa(aracclass asaa)
         {
-            MySqlConnection con = new MySqlConnection("Server=localhost;Database=users;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
+            MySqlConnection con = new MySqlConnection("Server=localhost;Database=testdb;Uid=root;Pwd='atalay528';AllowUserVariables=True;UseCompression=True;");
 
             MySqlDataAdapter baglayici = new MySqlDataAdapter();
             MySqlCommand komut = new MySqlCommand("Select * from testdb.arac where plaka = '" + plakatxt.Text + "'", con);
@@ -92,14 +92,14 @@ namespace GetLos_App
 
             return xy;
         }
-        bool yz=true;
+        bool yz = true;
         private bool txttt()
         {
-            if (markatxt.Text=="" || modeltxt.Text == ""
+            if (markatxt.Text == "" || modeltxt.Text == ""
                 || plakatxt.Text == "" || altertxt.Text == "" || yakıtlist.Text == ""
-                || kasalist.Text == "" )
+                || kasalist.Text == "")
             {
-                yz=false;
+                yz = false;
             }
             else
             {
@@ -108,42 +108,108 @@ namespace GetLos_App
             return yz;
 
         }
-        
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             txttt();
             aracclass yeniarac = new aracclass();
             sa(yeniarac);
             
-            if (yz)
-            {
+                if (yz)
+                {
 
-                if (altertxt.Text.Length == 4 && (plakatxt.Text.Length<8 && plakatxt.Text.Length>6 ))
-                { 
-                    if (xy)
+                    if (altertxt.Text.Length == 4 && (plakatxt.Text.Length < 8 && plakatxt.Text.Length > 6))
                     {
-                        kp.Ekle(yeniarac);
-                        aracdata.ItemsSource = kp.Listele1();
+                        if (schade.SelectedIndex == 0)
+                        {
+                            yeniarac.Schaden = "0";
+                        }
+                        if (schade.SelectedIndex == 1)
+                        {
 
-                        kp.Listele();
+                            yeniarac.Schaden = "1";
+
+
+                        }
+                        if (kasalist.SelectedIndex == 0)
+                        {
+                            yeniarac.Karosserientyp = "Hatchback";
+                        }
+                        if (kasalist.SelectedIndex == 1)
+                        {
+
+                            yeniarac.Karosserientyp = "Sedan";
+
+
+                        }
+                        if (kasalist.SelectedIndex == 2)
+                        {
+
+                            yeniarac.Karosserientyp = "Stationwagon";
+
+
+                        }
+                        if (yakıtlist.SelectedIndex == 0)
+                        {
+
+                            yeniarac.Kraftstoff = "Benzin";
+
+                        }
+                        if (yakıtlist.SelectedIndex == 1)
+                        {
+
+                            yeniarac.Kraftstoff = "Diesel";
+
+                        }
+                        if (yakıtlist.SelectedIndex == 2)
+                        {
+
+                            yeniarac.Kraftstoff = "Elektrik";
+
+
+                        }
+                        if (yakıtlist.SelectedIndex == 3)
+                        {
+
+                            yeniarac.Kraftstoff = "Lpg";
+
+
+                        }
+                        yeniarac.Marke = markatxt.Text;
+                        yeniarac.Model = modeltxt.Text;
+                        yeniarac.Nummernschild = plakatxt.Text;
+                        yeniarac.Alter = Convert.ToInt32(altertxt.Text);
+                        yeniarac.Getriebetype = şanzımantxt.Text;
+                        yeniarac.Km = kmtxt.Text;
+                        yeniarac.Farbe = motorgüctxt.Text;
+                        yeniarac.Kosten = kostentxt.Text;
+                        if (xy)
+                        {
+
+
+                            kp.Ekle(yeniarac);
+                            aracdata.ItemsSource = kp.Listele1();
+
+                            kp.Listele();
+
+
+                        }
+                        else
+                        {
+                            System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
+
+                        }
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
+                        MessageBox.Show("Alter 4 haneli olmalı \nGirilen Plakayı kontrol edin");
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Alter 4 haneli olmalı \nGirilen Plakayı kontrol edin");
-
+                    MessageBox.Show("Sie müssen jedes Feld ausfüllen");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Sie müssen jedes Feld ausfüllen");
-            }
-            
 
         }
         private void musteridata_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -216,7 +282,7 @@ namespace GetLos_App
                 yakıtlist.SelectedIndex = z;
                 kostentxt.Text = selectedEmployee.Kosten.Substring(0, selectedEmployee.Kosten.Length - 1); ;
             }
-           
+
         }
         private void benzin_Selected(object sender, RoutedEventArgs e)
         {
@@ -226,8 +292,13 @@ namespace GetLos_App
         {
             aracclass aracclass2 = new aracclass();
             aracclass2 = (aracclass)aracdata.SelectedItem as aracclass;
-            kp.Sil(aracclass2);
-            aracdata.ItemsSource = kp.Listele1();
+            if (aracdata.SelectedIndex!=-1)
+            {
+                kp.Sil(aracclass2);
+                aracdata.ItemsSource = kp.Listele1();
+            }
+            
+            
 
 
         }
@@ -236,47 +307,95 @@ namespace GetLos_App
             aracclass esarac = new aracclass();
             esarac = (aracclass)aracdata.SelectedItem as aracclass;
             aracclass yenikisi = new aracclass();
-
-
-            yenikisi.Marke = markatxt.Text;
-            yenikisi.Model = modeltxt.Text;
-            yenikisi.Nummernschild = plakatxt.Text;
-            yenikisi.Alter = Convert.ToInt32(altertxt.Text);
-            yenikisi.Kraftstoff = yakıtlist.Text;
-            yenikisi.Getriebetype = şanzımantxt.Text;
-            yenikisi.Km = kmtxt.Text;
-            yenikisi.Karosserientyp = kasalist.Text;
-            yenikisi.Schaden = schade.Text;
-            yenikisi.Farbe = motorgüctxt.Text;
-            yenikisi.Kosten = kostentxt.Text;
-            if (yz)
+            if (  aracdata.SelectedIndex != -1)
             {
 
-                if (altertxt.Text.Length == 4 && (plakatxt.Text.Length < 8 && plakatxt.Text.Length > 6))
+                if (schade.SelectedIndex == 0)
                 {
-                    if (xy)
+                    yenikisi.Schaden = "0";
+                }
+                if (schade.SelectedIndex == 1)
+                {
+
+                    yenikisi.Schaden = "1";
+
+
+                }
+                if (kasalist.SelectedIndex == 0)
+                {
+                    yenikisi.Karosserientyp = "Hatchback";
+                }
+                if (kasalist.SelectedIndex == 1)
+                {
+
+                    yenikisi.Karosserientyp = "Sedan";
+
+
+                }
+                if (kasalist.SelectedIndex == 2)
+                {
+
+                    yenikisi.Karosserientyp = "Stationwagon";
+
+
+                }
+                if (yakıtlist.SelectedIndex == 0)
+                {
+
+                    yenikisi.Kraftstoff = "Benzin";
+
+                }
+                if (yakıtlist.SelectedIndex == 1)
+                {
+
+                    yenikisi.Kraftstoff = "Diesel";
+
+                }
+                if (yakıtlist.SelectedIndex == 2)
+                {
+
+                    yenikisi.Kraftstoff = "Elektrik";
+
+
+                }
+                if (yakıtlist.SelectedIndex == 3)
+                {
+
+                    yenikisi.Kraftstoff = "Lpg";
+
+
+                }
+                yenikisi.Marke = markatxt.Text;
+                yenikisi.Model = modeltxt.Text;
+                yenikisi.Nummernschild = plakatxt.Text;
+                yenikisi.Alter = Convert.ToInt32(altertxt.Text);
+                yenikisi.Getriebetype = şanzımantxt.Text;
+                yenikisi.Km = kmtxt.Text;
+                yenikisi.Farbe = motorgüctxt.Text;
+                yenikisi.Kosten = kostentxt.Text;
+                if (yz)
+                {
+
+                    if (altertxt.Text.Length == 4 && (plakatxt.Text.Length < 8 && plakatxt.Text.Length > 6))
                     {
+
+
                         kp.Guncelle(esarac, yenikisi);
                         aracdata.ItemsSource = kp.Listele1();
+
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("Sie können denselben Auto nicht erneut hinzufügen.");
+                        MessageBox.Show("Alter 4 haneli olmalı \nGirilen Plakayı kontrol edin");
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Alter 4 haneli olmalı \nGirilen Plakayı kontrol edin");
-
+                    MessageBox.Show("Sie müssen jedes Feld ausfüllen");
                 }
             }
-            else
-            {
-                MessageBox.Show("Sie müssen jedes Feld ausfüllen");
-            }
 
-            
 
 
         }
@@ -287,7 +406,7 @@ namespace GetLos_App
 
             printDlg.PrintVisual(aracdata, "AutoList");
             */
-            musteripopupxaml musteripopupxaml  = new musteripopupxaml();
+            musteripopupxaml musteripopupxaml = new musteripopupxaml();
             musteripopupxaml.Show();
             musteripopupxaml.Close();
 
@@ -309,6 +428,6 @@ namespace GetLos_App
 
         }
 
- 
+
     }
 }
