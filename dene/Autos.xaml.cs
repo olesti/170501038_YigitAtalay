@@ -309,56 +309,6 @@ namespace GetLos_App
 
         }
 
-        /*
-public void Print_WPF_Preview(FrameworkElement wpf_Element)
-
-{
-
-   //------------< WPF_Print_current_Window >------------
-
-   //--< create xps document >--
-
-   XpsDocument doc = new XpsDocument("print_previw.xps", FileAccess.ReadWrite);
-
-   XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
-
-   SerializerWriterCollator preview_Document = writer.CreateVisualsCollator();
-
-   preview_Document.BeginBatchWrite();
-
-   preview_Document.Write(wpf_Element);  //*this or wpf xaml control
-
-   preview_Document.EndBatchWrite();
-
-   //--</ create xps document >--
-
-
-
-   //var doc2 = new XpsDocument("Druckausgabe.xps", FileAccess.Read);
-
-
-
-   FixedDocumentSequence preview = doc.GetFixedDocumentSequence();
-
-
-
-   var window = new Window();
-
-   window.Content = new DocumentViewer { Document = preview };
-
-   window.ShowDialog();
-
-
-
-   doc.Close();
-
-   //------------</ WPF_Print_current_Window >------------
-
-
-
-
-
-}
-*/
+ 
     }
 }

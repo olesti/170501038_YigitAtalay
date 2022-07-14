@@ -262,7 +262,6 @@ namespace GetLos_App
             
         }
         
-        Mieteclass k1 = new Mieteclass();
 
         public List<Mieteclass> Listelemiete()
         {
@@ -300,9 +299,7 @@ namespace GetLos_App
                     k.Ilkdate = Convert.ToDateTime(reader[13].ToString());
                     k.Sondate = Convert.ToDateTime(reader[14].ToString());
                     mietelist.Add(k);
-                    k1.Ilkdate = Convert.ToDateTime(reader[13].ToString());
-                    k1.Sondate = Convert.ToDateTime(reader[14].ToString());
-                    mietelist2.Add(k1);
+                    
                     
 
                 }
@@ -329,7 +326,7 @@ namespace GetLos_App
             try
             {
                 MySqlCommand komut = new MySqlCommand("Insert Into miete ( Vorname, Nachname, Tcnummer, Telefonnummer, Email, Ehliyetno, Model, Marke, Nummerschild, Kraftstoff, GesamtKosten, Rechnungsno, Basdate, Sondate) Values " +
-                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaas.kostentxt.Text + "','" + saaas.rechnungtxt.Text + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd HH:mm:ss") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd HH:mm:ss") + "')", con);
+                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaas.kostentxt.Text + "','" + saaas.rechnungtxt.Text + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd") + "')", con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }

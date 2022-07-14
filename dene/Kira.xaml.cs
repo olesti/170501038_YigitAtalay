@@ -105,39 +105,50 @@ namespace GetLos_App
                 if (gun != null && gun != 0)
                 {
                     preistxt.Text = (gun * Convert.ToInt32(kostentxt.Text)).ToString();
-                    time1txt.Text = time1.DateTime.Value.ToString();
-                    time2txt.Text = timenormal.ToString();
+                    //time1txt.Text = time1.DateTime.Value.ToString();
+                    //time2txt.Text = timenormal.ToString();
                 }
             }
             
 
         }
 
-        bool saaatt;
-        bool saat(DateTime ass, DateTime ass1)
+        bool saat(DateTime yeniilk, DateTime yenison, MySqlDataReader read)
         {
-            DateTime yeni1 = time1.DateTime.Value;
-            DateTime yeni2 = time2.DateTime.Value;
-            /*
-            for (int i = 0; i < mietedata.Items.Count; i++)
+            DateTime databaseilk ;
+            DateTime databaseson ;
+            //(databaseilk <= yeniilk && yeniilk < databaseson) || (databaseilk < yenison && yenison <= databaseson)
+            while (read.Read())
             {
+                databaseilk = Convert.ToDateTime(read[13].ToString());
+                databaseson = Convert.ToDateTime(read[14].ToString());
+                if ((databaseilk <= yeniilk && yeniilk < databaseson) || (databaseilk < yenison && yenison <= databaseson))
+                {
+                    
+                    return false;
 
-            }*/
-            if ((yeni1 < ass && ass < yeni2) || (yeni1 < ass1 && ass1 < yeni2))
-            {
-                saaatt = false;
 
-
+                }
+                
             }
-            else
-            {
-                saaatt = true;
+            return true;
 
-
-
-            }
-            return saaatt;
         }
+        /*
+        public static bool HasOverlap(DateTime start1, DateTime end1, DateTime start2, DateTime end2)
+        {
+            return Min(start1, end1) < Max(start2, end2) && Max(start1, end1) > Min(start2, end2);
+        }
+
+        public static DateTime Max(DateTime d1, DateTime d2)
+        {
+            return d1 > d2 ? d1 : d2;
+        }
+
+        public static DateTime Min(DateTime d1, DateTime d2)
+        {
+            return d2 > d1 ? d1 : d2;
+        }*/
         MySqlConnection con;
 
         private void Open_File_Copy_Click(object sender, RoutedEventArgs e)
@@ -159,10 +170,7 @@ namespace GetLos_App
             miete.Rechnungsno=rechnungtxt.Text;
             miete.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             miete.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-            saat(miete.Ilkdate, miete.Sondate);
-            List<Mieteclass> studentList = new List<Mieteclass>();
 
-            Console.WriteLine();
             try
             {
                 
@@ -176,7 +184,8 @@ namespace GetLos_App
 
                 if (reader.Read())
                 {
-                    if (saaatt)
+                    
+                    if (saat(miete.Ilkdate, miete.Sondate, reader))
                     {
                         kp.Eklemiete(musteri, arac, miete);
                         mietedata.ItemsSource = kp.Listelemiete();
@@ -190,7 +199,10 @@ namespace GetLos_App
                 }
                 else
                 {
-                    MessageBox.Show("Username And Password Not Match!", "VINSMOKE MJ", MessageBoxButton.OK, MessageBoxImage.Error);
+                    kp.Eklemiete(musteri, arac, miete);
+                    mietedata.ItemsSource = kp.Listelemiete();
+
+                    kp.Listelemiete();
                 }
             }
             finally
