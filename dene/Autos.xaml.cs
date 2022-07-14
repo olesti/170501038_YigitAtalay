@@ -289,7 +289,7 @@ namespace GetLos_App
             */
             musteripopupxaml musteripopupxaml  = new musteripopupxaml();
             musteripopupxaml.Show();
-
+            musteripopupxaml.Close();
 
         }
 

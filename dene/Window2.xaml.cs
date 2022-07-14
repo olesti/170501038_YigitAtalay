@@ -56,10 +56,12 @@ namespace GetLos_App
                 if (reader.Read())
                 {
                     control=Convert.ToInt32(reader[4]);
-                    MainWindow sa =new MainWindow();
-                    sa.contrltxt.Text = control.ToString();
-                    sa.Show();
+                    mainWindow2.contrltxt.Text = control.ToString();
+                    mainWindow2.sa = control.ToString();
+                    mainWindow2.Show();
+                    kullsınıf();
                     this.Close();
+
                 }
                 else
                 {
@@ -81,17 +83,45 @@ namespace GetLos_App
             Window1 sa = new Window1();
             sa.Show();
         }
-
+        MainWindow mainWindow2 = new MainWindow();
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             bool K = Keyboard.IsKeyDown(Key.K);
             bool shift = Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
             if (K && shift)
             {
-                MainWindow mainWindow=  new MainWindow();
-                mainWindow.Show();
+                
+                mainWindow2.Show();
                 this.Close();
-                mainWindow.contrltxt.Text = "2";
+                mainWindow2.contrltxt.Text = "1";
+                mainWindow2.sa = "1";
+                
+
+            }
+            kullsınıf();
+        }
+        private void kullsınıf()
+        {
+            
+
+            if (mainWindow2.sa == "1")
+            {
+                mainWindow2.kullanıcısınıfıtxt.Content = "Admin";
+            }
+            else if (mainWindow2.sa == "2")
+            {
+                mainWindow2.kullanıcısınıfıtxt.Content = "Mitarbeiter";
+
+            }
+            else if (mainWindow2.sa == "3")
+            {
+                mainWindow2.kullanıcısınıfıtxt.Content = "Buchhalter:";
+
+            }
+            else
+            {
+                mainWindow2.kullanıcısınıfıtxt.Content = "Das Team";
+
             }
         }
     }

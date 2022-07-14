@@ -28,31 +28,32 @@ namespace GetLos_App
         public Window3()
         {
             InitializeComponent();
-            asas();
-
-
-            //yakitcombo.ItemsSource = pp;
-
-        }
-        public void asas()
-        {
             
-            //yakitcombo.ItemsSource = typeof(Color).GetProperties();
 
-        }
-       
-        public bool IsValid(string Email)
-        {
-            try
-            {
-                MailAddress m = new MailAddress(Email);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
         }
         
+       
+        
+
+        private void Open_File_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            aracpopup miete = new aracpopup();
+            miete.Show();
+
+        }
+
+        private void Open_File_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            musteripopupxaml musteripopupxaml = new musteripopupxaml();
+            musteripopupxaml.Show();
+
+        }
+
+        private void Open_File_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            mietepopup miete = new mietepopup();
+            miete.Show();
+
+        }
     }
 }

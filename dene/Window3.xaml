@@ -5,222 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GetLos_App"
         mc:Ignorable="d"
-        Title="Window3" Height="672" Width="1200">
+        Title="Rechnungsdruckseite" FontStyle="Italic" Height="400" Width="800">
     <Grid Background="#FF303943">
-        <Border BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="226" Margin="36,35,0,0" VerticalAlignment="Top" Width="291" RenderTransformOrigin="0.667,0.594"/>
-        <Grid Margin="32,35,1006,382">
-            <Label x:Name="progresslbl" Content="Vorname:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" Margin="3,0,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.114"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="programtimelbl" Content="Nachname:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,34,0,0" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="oilcoolinglbl" Content="Tcnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,69,0,0" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="149" Cursor="Arrow">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="aircleaning" Content="Telefonnummer :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3,103,0,0" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="148" Cursor="Arrow">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="surfacereadinglbl" Content="E-mail:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,138,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="surfacereadinglbl_Copy" Content="Ehliyet No:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,174,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-
-        </Grid>
-        <Button x:Name="Open_File" Content="Car" Margin="0,0,585,24"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56">
-            <Button.Foreground>
-                <SolidColorBrush Color="{DynamicResource PrimaryYellow}"/>
-            </Button.Foreground>
-        </Button>
-        <Button x:Name="Open_File_Copy" Content="Müş" Margin="0,0,690,23"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56">
-            <Button.Foreground>
-                <SolidColorBrush Color="{DynamicResource PrimaryYellow}"/>
-            </Button.Foreground>
-        </Button>
-        <Button x:Name="Open_File_Copy1" Content="Fat" Margin="0,0,407,27"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56">
-            <Button.Foreground>
-                <SolidColorBrush Color="{DynamicResource PrimaryYellow}"/>
-            </Button.Foreground>
-        </Button>
-        <Button x:Name="Open_File_Copy2" Content="kir" Margin="0,0,496,25"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="56">
-            <Button.Foreground>
-                <SolidColorBrush Color="{DynamicResource PrimaryYellow}"/>
-            </Button.Foreground>
-        </Button>
-        <Label Content="Personal Information" HorizontalAlignment="Left" Margin="35,9,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold" FontSize="14"/>
-        <Grid Margin="34,318,866,27">
-            <Button x:Name="Searchbtn_Copy" Content="Araç seç" HorizontalAlignment="Left" Margin="0,253,0,-49" Width="98" BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" Height="44" VerticalAlignment="Top">
+        <Grid VerticalAlignment="Top" Margin="151,258,151,0">
+            <Button x:Name="Open_File_Copy" Content="Auto"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Click="Open_File_Copy_Click">
                 <Button.Foreground>
-                    <SolidColorBrush Color="{DynamicResource PrimaryYellow}"/>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                 </Button.Foreground>
             </Button>
-            <Border BorderBrush="White" BorderThickness="1" Height="221" VerticalAlignment="Top" HorizontalAlignment="Left" Width="292" Margin="0,27,0,0">
-                <ComboBox x:Name="yakitcombo" Margin="155,144,6,52">
-                    <ComboBoxItem Content="Benzin"></ComboBoxItem>
-                    <ComboBoxItem Content="Dizel"></ComboBoxItem>
-                    <ComboBoxItem Content="Lpg"></ComboBoxItem>
-                    <ComboBoxItem Content="Elektrik"></ComboBoxItem>
-                </ComboBox>
-            </Border>
-            <Label x:Name="progresslbl2" Content="Model:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.718,0.379" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="133" Cursor="Arrow" Margin="3,26,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.114"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="programtimelbl1" Content="Marka:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" Margin="3,60,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="oilcoolinglbl3" Content="Vites:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="149" Cursor="Arrow" Margin="3,95,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="aircleaning4" Content="Plaka:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="35" VerticalContentAlignment="Center" Width="148" Cursor="Arrow" Margin="3,129,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="surfacer2eadinglbl" Content="Yakıt:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,164,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label x:Name="surfacer2eadinglbl_Copy" Content="Kasa Tipi:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Yu Gothic UI Light" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="34" VerticalContentAlignment="Center" Width="151" Cursor="Arrow" Margin="1,199,0,0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.091000000000008185"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0.08"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label Content="Auto Information" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold" FontSize="14"/>
-            <TextBox x:Name="txtsource_Copy5" HorizontalAlignment="Left" Margin="154,32,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="txtsource_Copy7" HorizontalAlignment="Left" Margin="155,102,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="txtsource_Copy8" HorizontalAlignment="Left" Margin="155,137,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-            <TextBox x:Name="txtsource_Copy10" HorizontalAlignment="Left" Margin="155,207,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
+            <Button x:Name="Open_File_Copy1" Content="Kunden"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Click="Open_File_Copy1_Click">
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                </Button.Foreground>
+            </Button>
+            <Button x:Name="Open_File_Copy2" Content="Mieten" Margin="395,0,0,0"  BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" FontSize="14" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Click="Open_File_Copy2_Click">
+                <Button.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                </Button.Foreground>
+            </Button>
+
         </Grid>
-        <TextBox x:Name="txtsource" HorizontalAlignment="Left" Margin="191,41,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="txtsource_Copy" HorizontalAlignment="Left" Margin="192,76,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="txtsource_Copy1" HorizontalAlignment="Left" Margin="192,111,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="txtsource_Copy2" HorizontalAlignment="Left" Margin="192,146,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="txtsource_Copy3" HorizontalAlignment="Left" Margin="192,181,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <TextBox x:Name="txtsource_Copy4" HorizontalAlignment="Left" Margin="192,216,0,0" TextWrapping="Wrap" Width="130" Background="#FF414C59" BorderBrush="{x:Null}" Foreground="White" FontSize="14" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" Focusable="False"/>
-        <Button x:Name="Searchbtn" Content="Müsteri seç" HorizontalAlignment="Left" Margin="38,266,0,0" Width="98" BorderBrush="{x:Null}" Background="#FF1A1A1A" Cursor="Arrow" Height="44" VerticalAlignment="Top">
-            <Button.Foreground>
-                <SolidColorBrush Color="{DynamicResource PrimaryYellow}"/>
-            </Button.Foreground>
-        </Button>
-        <ComboBox x:Name="yakitcombo_Copy" Margin="190,385,0,0" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="14" HorizontalAlignment="Left" Width="128" Height="25" VerticalAlignment="Top">
-            <ComboBoxItem Content="Alfa-Romeo"/>
-            <ComboBoxItem Content="Aston Martin"/>
-            <ComboBoxItem Content="Audi"/>
-            <ComboBoxItem Content="Bentley"/>
-            <ComboBoxItem Content="Bmw"/>
-            <ComboBoxItem Content="Chevrolet"/>
-            <ComboBoxItem Content="Citroen"/>
-            <ComboBoxItem Content="Fiat"/>
-            <ComboBoxItem Content="Ford"/>
-            <ComboBoxItem Content="Honda"/>
-            <ComboBoxItem Content="Hyundai"/>
-            <ComboBoxItem Content="Jeep"/>
-            <ComboBoxItem Content="Kia"/>
-            <ComboBoxItem Content="Land Rover"/>
-            <ComboBoxItem Content="Lexus"/>
-            <ComboBoxItem Content="Mazda"/>
-            <ComboBoxItem Content="Mercedes"/>
-            <ComboBoxItem Content="Mini"/>
-            <ComboBoxItem Content="Mitsubishi"/>
-            <ComboBoxItem Content="Nissan"/>
-            <ComboBoxItem Content="Opel"/>
-            <ComboBoxItem Content="Peugeot"/>
-            <ComboBoxItem Content="Renault"/>
-            <ComboBoxItem Content="Rolls-Royce"/>
-            <ComboBoxItem Content="Skoda"/>
-            <ComboBoxItem Content="Suzuki"/>
-            <ComboBoxItem Content="Tesla"/>
-            <ComboBoxItem Content="Toyota"/>
-            <ComboBoxItem Content="Volkswagen"/>
-            <ComboBoxItem Content="Volvo"/>
-        </ComboBox>
-        <ComboBox x:Name="yakitcombo_Copy1" Margin="472,140,591,475">
-            <ComboBoxItem Content="Benzin"/>
-            <ComboBoxItem Content="Elektrik"/>
-            <ComboBoxItem Content="Dizel"/>
-            <ComboBoxItem Content="Lpg"/>
-        </ComboBox>
 
     </Grid>
 </Window>

@@ -320,13 +320,15 @@ namespace GetLos_App
             }
 
         }
+        
         public void Eklemiete(mustericlass musekle, aracclass arekle, Mieteclass saaaa)
         {
+           
             Kira saaas = new Kira();
             try
             {
                 MySqlCommand komut = new MySqlCommand("Insert Into miete ( Vorname, Nachname, Tcnummer, Telefonnummer, Email, Ehliyetno, Model, Marke, Nummerschild, Kraftstoff, GesamtKosten, Rechnungsno, Basdate, Sondate) Values " +
-                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaas.kostentxt.Text + "','" + saaas.rechnungtxt.Text + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd") + "')", con);
+                    "('" + musekle.Ad + "','" + musekle.Soyad + "','" + musekle.Tcnummer + "','" + musekle.Telefonu + "','" + musekle.Mail + "','" + musekle.Ehliyetno + "','" + arekle.Model + "','" + arekle.Marke + "','" + arekle.Nummernschild + "','" + arekle.Kraftstoff + "','" + saaaa.Kosten + "','" + saaaa.Rechnungsno + "','" + saaaa.Ilkdate.ToString("yyyy-MM-dd") + "','" + saaaa.Sondate.ToString("yyyy-MM-dd") + "')", con);
                 con.Open();
                 komut.ExecuteNonQuery();
             }
@@ -363,6 +365,30 @@ namespace GetLos_App
                     con.Close();
                 }
             }
+        }
+        public void Guncellemiete(Mieteclass s)
+        {
+
+            try
+            {
+                MySqlCommand komut = new MySqlCommand("Update testdb.miete SET Rechnungsno='" + s.Rechnungsno + "', GesamtKosten='" + s.Kosten
+                    + "', Basdate='" + s.Ilkdate.ToString("yyyy-MM-dd") + "', Sondate='" + s.Sondate.ToString("yyyy-MM-dd") + "' Where mieteno= '" + s.Mieteno + "'", con);
+                con.Open();
+                komut.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+
         }
     }
 }

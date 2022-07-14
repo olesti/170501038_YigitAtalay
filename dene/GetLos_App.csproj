@@ -254,6 +254,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="mietepopup.xaml.cs">
+      <DependentUpon>mietepopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="aracclass.cs" />
     <Compile Include="Class2.cs" />
@@ -268,6 +271,9 @@
     <Compile Include="Kira.xaml.cs">
       <DependentUpon>Kira.xaml</DependentUpon>
     </Compile>
+    <Compile Include="aracpopup.xaml.cs">
+      <DependentUpon>aracpopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="musteripopupxaml.xaml.cs">
       <DependentUpon>musteripopupxaml.xaml</DependentUpon>
     </Compile>
@@ -280,6 +286,10 @@
     <Compile Include="Window3.xaml.cs">
       <DependentUpon>Window3.xaml</DependentUpon>
     </Compile>
+    <Page Include="mietepopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -303,6 +313,10 @@
     <Page Include="Kira.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="aracpopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="musteripopupxaml.xaml">
       <SubType>Designer</SubType>

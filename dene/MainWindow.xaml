@@ -7,7 +7,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="GetLos_App.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920" WindowState="Maximized">
-    <Grid Background="#FF303943">
+    <Grid Background="#FF303943" Loaded="Grid_Loaded">
         <Grid Margin="276,783,0,0" HorizontalAlignment="Left" Width="1488" Height="185" VerticalAlignment="Top">
             <Button x:Name="aracbtn" Content="Autos" HorizontalAlignment="Left" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36" Click="aracbtn_Click">
                 <Button.Background>
@@ -41,7 +41,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="faturabtn" Content="Faktur" HorizontalAlignment="Left" Margin="957,0,0,0" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36">
+            <Button x:Name="faturabtn" Content="Faktur" HorizontalAlignment="Left" Margin="957,0,0,0" VerticalAlignment="Center" Height="153" Width="192" BorderBrush="{x:Null}" FontSize="36" Click="faturabtn_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -91,6 +91,8 @@
             </Button>
         </Grid>
         <Image Margin="769,8,0,0" Source="/GetLos-logos_black.png" Stretch="UniformToFill" Height="400" VerticalAlignment="Top" HorizontalAlignment="Left" Width="457"/>
-        <TextBox x:Name="contrltxt" HorizontalAlignment="Left" Margin="264,463,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="316" Height="180" FontSize="36"/>
+        <TextBox x:Name="contrltxt" HorizontalAlignment="Left" Margin="63,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="316" Height="180" FontSize="36" Visibility="Hidden"/>
+        <Label Content="Benutzerklasse:" HorizontalAlignment="Left" Margin="1471,110,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="#FF02A58B"/>
+        <Label Name="kullanıcısınıfıtxt" Content="" HorizontalAlignment="Left" Margin="1632,110,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="#FF02A58B"/>
     </Grid>
 </Window>

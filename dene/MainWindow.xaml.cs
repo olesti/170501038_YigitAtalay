@@ -22,14 +22,16 @@ namespace GetLos_App
     /// </summary>
     public partial class MainWindow : Window
     {
-        Window2 sasss= new Window2();
+        public string sa ;
+
         public MainWindow()
         {
+            
             InitializeComponent();
-
+            
 
         }
-
+       
         private void aracbtn_Click(object sender, RoutedEventArgs e)
         {
             Autos arac = new Autos();
@@ -38,29 +40,47 @@ namespace GetLos_App
 
         private void musteribtn_Click(object sender, RoutedEventArgs e)
         {
-            if (contrltxt.Text=="1"|| contrltxt.Text == "3")
+            if (sa == "1"|| sa == "3")
             {
                 Musteri ara = new Musteri();
                 ara.Show();
             }
             else
             {
-                MessageBox.Show("Buna izniniz yok");
+                MessageBox.Show("Sie sind nicht berechtigt, darauf zuzugreifen");
             }
         }
 
         private void kiralama_Click(object sender, RoutedEventArgs e)
         {
-            if (contrltxt.Text == "1" || contrltxt.Text == "2")
+            if (sa == "1" || sa == "2")
             {
                 Kira saaa = new Kira();
                 saaa.Show();
             }
             else
             {
-                MessageBox.Show("Buna izniniz yok");
+                MessageBox.Show("Sie sind nicht berechtigt, darauf zuzugreifen");
             }
             
+
+        }
+
+        private void faturabtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (sa == "1" || sa == "3")
+            {
+                Window3 saaa = new Window3();
+                saaa.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sie sind nicht berechtigt, darauf zuzugreifen");
+            }
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
 
         }
     }

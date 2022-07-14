@@ -32,7 +32,6 @@ namespace GetLos_App
             kp.Listelemiete();
             mietedata.ItemsSource = kp.Listelemiete();
 
-
         }
 
         Class1 kp=new Class1(); 
@@ -99,7 +98,6 @@ namespace GetLos_App
 
             TimeSpan ts = sinavTarihi - bugunTarihi;
             gun = ts.Days;
-            teltxt_Copy.Text = "Kalan Gün : " + ts.Days.ToString();
             if (kostentxt.Text != "")
             {
                 if (gun != null && gun != 0)
@@ -107,6 +105,7 @@ namespace GetLos_App
                     preistxt.Text = (gun * Convert.ToInt32(kostentxt.Text)).ToString();
                     //time1txt.Text = time1.DateTime.Value.ToString();
                     //time2txt.Text = timenormal.ToString();
+                    
                 }
             }
             
@@ -153,6 +152,7 @@ namespace GetLos_App
 
         private void Open_File_Copy_Click(object sender, RoutedEventArgs e)
         {
+            string ödeme;
             var arac = (aracclass)aracpopodata.SelectedItem as aracclass;
             var musteri = (mustericlass)musteripopodata.SelectedItem as mustericlass;
             Mieteclass miete = new Mieteclass();
@@ -166,8 +166,16 @@ namespace GetLos_App
             miete.Marke =arac.Marke;
             miete.Nummerschild = arac.Nummernschild;
             miete.Kraftstoff =arac.Kraftstoff;
-            miete.Kosten =kostentxt.Text;
-            miete.Rechnungsno=rechnungtxt.Text;
+            miete.Kosten =preistxt.Text;
+            if (ödemetürücombo.SelectedIndex == 0)
+            {
+                ödeme = "Bargeld";
+            }
+            else
+            {
+                ödeme = "Kreditkarte";
+            }
+            miete.Rechnungsno=ödeme;
             miete.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             miete.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
 
@@ -230,6 +238,54 @@ namespace GetLos_App
             kp.Silmiete(aracclass2); ;
             mietedata.ItemsSource = kp.Listelemiete();
             
+        }
+
+        private void Open_File_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            mietepopup miete = new mietepopup();
+            miete.Show();
+
+        }
+
+        private void mietedata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Mieteclass aracclass2 = new Mieteclass();
+            aracclass2 = (Mieteclass)mietedata.SelectedItem as Mieteclass;
+            rechnungtxt.Text=aracclass2.Mieteno.ToString();
+            time1.DateTime = aracclass2.Ilkdate;
+            time2.DateTime = aracclass2.Sondate;
+            preistxt.Text=aracclass2.Kosten;
+            if (aracclass2.Rechnungsno == "Kreditkarte")
+            {
+                ödemetürücombo.SelectedIndex = 1;
+            }
+            else if (aracclass2.Rechnungsno == "Bargeld")
+            {
+                ödemetürücombo.SelectedIndex =0;
+
+            }
+        }
+
+        private void Open_File_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            Mieteclass aracclass2 = new Mieteclass();
+            aracclass2 = (Mieteclass)mietedata.SelectedItem as Mieteclass;
+            aracclass2.Marke = markatxt.Text;
+            aracclass2.Model = modeltxt.Text;
+            string ödeme;
+            if (ödemetürücombo.SelectedIndex == 0)
+            {
+                ödeme = "Bargeld";
+            }
+            else
+            {
+                ödeme = "Kreditkarte";
+            }
+            aracclass2.Rechnungsno = ödeme;
+            aracclass2.Sondate = Convert.ToDateTime(time2.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            aracclass2.Ilkdate = Convert.ToDateTime(time1.DateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            kp.Guncellemiete(aracclass2);
         }
     }
 }

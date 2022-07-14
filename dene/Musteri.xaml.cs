@@ -259,9 +259,9 @@ namespace GetLos_App
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDlg = new PrintDialog();
-
-            printDlg.PrintVisual(musteridata, "KundenList");
+            aracpopup aracpopups = new aracpopup();
+            aracpopups.Show();
+            aracpopups.Close();
         }
 
         private void PreviewTextInput(object sender, TextCompositionEventArgs e)

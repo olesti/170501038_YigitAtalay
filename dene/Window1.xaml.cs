@@ -61,7 +61,7 @@ namespace GetLos_App
             }
             else
             {
-                MessageBox.Show("girdiğiniz aktivasyon kodu yanlıştır");
+                MessageBox.Show("Der eingegebene Aktivierungscode ist falsch");
             }
 
         }
@@ -101,7 +101,7 @@ namespace GetLos_App
             }
             else
             {
-                MessageBox.Show("sa");
+                MessageBox.Show("Datenbankfehler");
             }
 
         }
@@ -153,7 +153,7 @@ namespace GetLos_App
                     {
 
                         MySqlDataAdapter baglayici = new MySqlDataAdapter();
-                        MySqlCommand komut = new MySqlCommand("update users set password= '" + passwordtxt.Text + "' where idusers=" + id, con);
+                        MySqlCommand komut = new MySqlCommand("update userslast set password= '" + passwordtxt.Text + "' where idusers=" + id, con);
                         con.Open();
                         komut.ExecuteNonQuery();
                     }
@@ -165,7 +165,7 @@ namespace GetLos_App
                 }
                 else
                 {
-                    MessageBox.Show("Das Passwort muss einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Symbol enthalten.");
+                    MessageBox.Show("Das Passwort muss einen Großbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.");
                 }
 ;
             }
