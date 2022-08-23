@@ -88,7 +88,7 @@ namespace GetLos_App
                 global = sa(20);
                 eposta.Body = global;
                 SmtpClient sas = new SmtpClient();
-                sas.Credentials = new System.Net.NetworkCredential("e170501038@stud.tau.edu.tr", "atalay528");
+                sas.Credentials = new System.Net.NetworkCredential("e170501038@stud.tau.edu.tr", "passs");
                 sas.Host = "smtp.gmail.com";
                 sas.EnableSsl = true;
                 sas.Port = 587;
