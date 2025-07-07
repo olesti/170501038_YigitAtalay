@@ -1,4 +1,5 @@
-#Information on project status
+#Information on project status:
+
 The first prototype of the homepage, customer, rental, and vehicle pages has been completed. What has been designed so far is complete in terms of the materials that will be included on the pages. In other words, the visual design of the application is left for the future.
 
 Classes have been created for customer, rental, and vehicle information. Then, we tested how this information would be displayed in the Datagrid table. I would like to use Ms Access or MySQL as the database.
